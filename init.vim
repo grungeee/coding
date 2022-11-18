@@ -11,7 +11,8 @@ endif
 
 let g:vim_bootstrap_langs = "c,html,javascript,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
+" let g:vim_bootstrap_theme = "molokai"
+let g:vim_bootstrap_theme = "monokaipro"
 let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
@@ -62,6 +63,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplition
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug  'better-comments.nvim' " Better comments like in VS Code
+
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'norcalli/nvim-colorizer.lua'
@@ -252,7 +255,7 @@ set fileformats=unix,dos,mac
 if exists('$SHELL')
     set shell=$SHELL
 else
-    set shell=/bin/zsh " zsh shell in this case, alse sh
+    set shell=/usr/bin/zsh " zsh shell in this case, alse sh
 endif
 
 " session management
@@ -271,6 +274,7 @@ set number
 let no_buffers_menu=1
 " colorscheme molokai
 
+" let g:monokaipro_filter = "classic"
 let g:monokaipro_filter = "default"
 colorscheme monokaipro
 
