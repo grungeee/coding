@@ -63,7 +63,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplition
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug  'better-comments.nvim' " Better comments like in VS Code
+Plug 'preservim/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc' 
+
+" broken :(
+" Plug  'better-comments.nvim' " Better comments like in VS Code
 
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -169,8 +173,10 @@ set signcolumn=yes                      " Signcolum for git & error visualiztati
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set pumheight=10                        " Makes popup menu smaller
 set updatetime=300                      " Faster completion
-set timeoutlen=500                      " By default timeoutlen is 1000 ms
-" set iskeyword+=-                        " treat dash separated words as a word text object"
+" set timeoutlen=500                      " By default timeoutlen is 1000 ms
+set iskeyword+=-                        " treat dash separated words as a word text object"
+
+
 
 " --------  PLUGIN CONFIG --------
 "  COC
@@ -349,6 +355,7 @@ endif
 "" Abbreviations
 "*****************************************************************************
 "" no one is really happy until you have this shortcuts
+
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -359,6 +366,16 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+
+inoremap jk <Esc>
+inoremap kj <Esc>
+vnoremap jk <Esc>
+vnoremap kj <Esc>
+cnoremap jk <Esc>
+cnoremap kj <Esc>
+
+
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
@@ -562,7 +579,7 @@ noremap <leader>c :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
-" ------------- my  laternative -------------
+" ------------- my  alternative -------------
 nnoremap <silent><Esc> <Esc>:noh<CR>
 vnoremap <silent><Esc> <Esc>:noh<CR>
 cnoremap <silent><Esc> <Esc>:noh<CR>
