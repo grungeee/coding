@@ -1,0 +1,439 @@
+<html data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #181a1b;
+   --darkreader-neutral-text: #e8e6e3;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: #181a1b !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: #181a1b;
+}
+html, body {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+mark {
+    color: #e8e6e3;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #404400 !important;
+    color: #e8e6e3 !important;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+}</style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script type="text/javascript">
+  
+    var canvas,div1;
+    var winW,winH;
+    var clock=0;
+    var cloud=null;
+    var π=Math.PI;
+    var mp = null;
+    var rainbow = ["#00aef0","#ed008c","#fff200"];
+    
+    function distance(a,b,c,d) {
+      return Math.sqrt(Math.pow(c-a,2)+Math.pow(d-b,2));
+    }
+    
+    function Cloud () {
+      this.clock = 0;
+      this.x = 100;
+      this.y = 100;
+      this.size = 100;
+      this.th0 = [1.4137,2.4562,3.8270,4.8695];
+      this.th1 = [0,0,0,0];
+      this.s0 = [0.6,0.6,0.6,0.6];
+      this.s1 = [1,1,1,1];
+      this.d0 = [0.95,0.83,0.83,0.95];
+      this.d1 = [1,1,1,1];
+      this.yOffset = 0;
+      this.smile = 0;
+      this.tickle = 0;
+      this.t0 = this.t1 = 0;
+      this.tMax = 0;
+      this.d = new Date();
+    }
+    
+    Cloud.prototype.draw = function (c) {
+      this.update();
+      if (this.tMax) this.drawSquit(c);
+      var i,j;
+      var x=this.x, y=this.y;
+      var x1,y1,d;
+      var s = this.size;
+      y += this.yOffset * s/80;
+      c.fillStyle = "#B3B3B3";
+      for (i=0;i<2;i++) {
+        c.beginPath();
+        c.arc(x,y,s,0,2*π,false);
+        c.fill();
+        for (j=0;j<4;j++) {
+          d = this.d0[j] * this.d1[j] * s;
+          x1 = x + d * Math.sin(this.th0[j]+this.th1[j]);
+          y1 = y - d * Math.cos(this.th0[j]+this.th1[j]);
+          c.beginPath();
+          c.arc(x1,y1,s*this.s0[j]*this.s1[j],0,2*π,false);
+          c.fill();
+        }
+        c.fillStyle = "#FFFFFF";
+        s *= 0.95;
+        x -= 0.05*s;
+        y -= 0.05*s;
+      }
+      s = this.size;
+      x1 = x + s*0.05;
+      y1 = y - s*(0.7 - (1-this.smile)*0.1);
+      c.strokeStyle = "#000000";
+      c.lineWidth = 3.0;
+      c.beginPath();
+      c.moveTo(x1-s*0.1,y1);
+      c.lineTo(x1-s*(0.35-0.05*this.smile),y1);
+      c.moveTo(x1+s*0.1,y1);
+      c.lineTo(x1+s*(0.35-0.05*this.smile),y1);
+      y1 += s*0.05;
+      c.moveTo(x1-s*0.08,y1-s*0.03*this.smile);
+      c.bezierCurveTo(x1,y1,x1,y1,x1+s*0.08,y1-s*0.03*this.smile);
+      c.stroke();
+    }
+    
+    Cloud.prototype.drawSquit = function (c) {
+      var x = this.x, y = this.y + this.yOffset;
+      var t0 = this.t0, t1 = this.t1;
+      var i,j;
+      c.save();
+			c.lineWidth = this.size/10;
+			c.lineCap = "round";
+			c.lineJoin = "bevel";
+			c.beginPath();
+			var y1 = (c.canvas.height-y), x1 = y1/2;
+			var lim = 1.118*y1;
+			if (t0<lim) {
+				for (i=0;i<rainbow.length;i++) {
+					c.strokeStyle = rainbow[i];
+					c.beginPath();
+					c.moveTo(x+x1*t0/lim, y+y1*t0/lim);
+					if (t1>lim) c.lineTo(x+x1, y+y1);
+					else c.lineTo(x+x1*t1/lim, y+y1*t1/lim);
+					c.stroke();
+					x += this.size/10;
+				}
+				x -= i * this.size/10;
+			}
+			var r = this.size * 0.8;
+			x1 = x + x1 + r;
+			y1 = y + y1;
+			var th0,th1;
+			var tp = lim, tn;
+			for (j=0;j<3;j++) {
+			  if (tp>t1) break;
+			  tn = tp + r*π;
+			  if (t0<tn) {
+			    th0 = (t0>tp) ? (t0-tp)/r : 0;
+			    th1 = (t1<tn) ? (t1-tp)/r : π;
+					for (i=0;i<rainbow.length;i++) {
+						c.strokeStyle = rainbow[i];
+						c.beginPath();
+						c.arc(x1,y1,r-i*(this.size/10),th0-π,th1-π,false);
+						c.stroke();
+					}
+			  }
+			  x1 += r * 1.75 - (rainbow.length-1)*this.size/10;
+			  r *= 0.75;
+			  tp = tn;
+			}
+			if (t0>tn) this.t0 = this.t1 = this.tMax = 0;
+      c.restore();
+    }
+    
+    Cloud.prototype.squit = function () {
+      if (this.tMax) return;
+      this.tMax = this.size * 3;
+      this.sqTime = 0;
+    }
+    
+    Cloud.prototype.update = function () {
+      t = this.clock;
+      this.smile = this.tickle;
+			this.th1[0] = 0.05 * Math.sin(t/2);
+			this.th1[1] = -0.05 * Math.sin(t-2.5);
+			this.th1[2] = 0.05 * Math.sin(t);
+			this.th1[3] = -0.05 * Math.sin(t/2-2.5);
+			this.d1[0] = this.d1[3] = 1 - Math.pow(this.tickle,2)/3;
+			this.s1[0] = this.s1[3] = 1 + Math.pow(this.tickle,2)/6;
+			this.d1[1] = this.d1[2] = 1 - Math.pow(this.tickle,2)/4;
+			this.s1[1] = this.s1[2] = 1 + Math.pow(this.tickle,2)/8;
+			this.yOffset = Math.sin(t/2);
+			this.tickle *= 0.98;
+			if (this.tickle > 0.6 && Math.random()>0.7) this.squit();
+			this.clock += 0.05 + Math.pow(this.tickle,2)*3;
+			if (this.tMax) {
+			  var t2 = Math.pow(this.sqTime++/5,2);
+			  var clench = Math.pow(2,-t2)*t2/2;
+			  this.d1[1] -= clench; this.d1[2] -= clench;
+			  this.d1[0] -= clench/3; this.d1[3] -= clench/3;
+				if (this.t1>this.tMax) this.t0 += this.tMax / 10;
+				this.t1 += this.tMax / 10;
+			}
+    }
+    
+    function redrawCanvas() {
+			var c = canvas.getContext("2d");
+			c.save();
+			c.fillStyle = "#201B1B";
+			c.fillRect(0,0,winW,winH);
+    	c.strokeStyle = "#ADAAA0";
+			monogram(c,winW-200,winH-140,40);
+			cloud.draw(c);
+			c.restore();
+			window.requestAnimationFrame(redrawCanvas);
+    }
+    
+    function monogram(c,x,y,size) {
+    	c.save();
+    	c.lineWidth = 1/8;
+    	c.lineCap = "round";
+    	c.translate(x,y);
+    	c.scale(size,size);
+    	c.beginPath();
+			c.moveTo(0.32, -0.30);
+			c.bezierCurveTo(1.35, 0.60, -3.62, 1.91, -0.89, -0.13);
+			c.bezierCurveTo(-1.42, -0.51, -1.18, -0.74, -0.53, -0.59);
+			c.stroke();
+			c.beginPath();
+			c.moveTo(-0.32, 0.30);
+			c.bezierCurveTo(-1.29, -0.61, 2.19, -1.29, 0.89, -0.05);
+			c.bezierCurveTo(2.51, 0.94, 1.53, 1.07, 0.41, 0.63);
+			c.stroke();
+    	c.restore();
+    }
+    
+    function mouseMove(e) {
+      if (!e) return;
+      var x,y,d;
+      if (e.touches) {
+        x = e.touches[0].clientX;
+        y = e.touches[0].clientY;
+      } else {
+        x = e.clientX;
+        y = e.clientY;
+      }
+      if (mp) {
+				if (x==mp.x && y==mp.y) return;
+				d = distance(x,y,mp.x,mp.y);
+				if (d < winH/2) // sanity check
+					if (distance(x,y,cloud.x,cloud.y)<cloud.size*0.9)
+						cloud.tickle += Math.pow(1-cloud.tickle,4) * d / 100;
+			}
+      mp = {x:x,y:y};
+    }
+    
+    function layout() {    
+			if (document.all) {
+				if (document.documentElement.clientHeight) {
+					winW = document.documentElement.clientWidth;
+					winH = document.documentElement.clientHeight;
+				} else {
+					winW = document.body.clientWidth;
+					winH = document.body.clientHeight;
+				}
+			} else {
+				winW = window.innerWidth;
+				winH = window.innerHeight;
+			}
+			div1.style.height = winH+"px";
+			if (canvas.width!=div1.clientWidth
+			  || canvas.height!=div1.clientHeight
+			) {
+				canvas.width = div1.clientWidth;
+				canvas.height = div1.clientHeight;
+				cloud.x = winW/3;
+				cloud.y = winH/3;
+				cloud.size = (winW>winH)?winH/4.0:winW/4.0;
+			}
+    }
+    
+    function init() {
+      div1 = document.getElementById("div1");
+      canvas = document.getElementById("mc");
+      canvas.addEventListener("mousemove",mouseMove,true);
+      canvas.addEventListener("mousedrag",mouseMove,true);
+      canvas.addEventListener("touchmove",mouseMove,true);
+      canvas.addEventListener("touchstart",function(e){mp=null;e.preventDefault();},true);
+      cloud = new Cloud();
+      layout();
+      window.requestAnimationFrame(redrawCanvas);     
+    }
+    
+    window.onload = init;
+    window.onresize = layout;
+    
+  </script>
+  <style type="text/css">
+    body  {margin:0px;padding:0px;background-color:white}
+    #div1 {margin:0px;width:100%;position:absolute;overflow:hidden}
+  </style><style class="darkreader darkreader--sync" media="screen"></style>
+<meta name="darkreader" content="c5550739e5e44f2aaca6c0975c79a71c"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #684b00 !important;
+    border-color: #9e7e00 !important;
+    color: #d7d4cf !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #1b4958 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #0f3a47 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #1e2021 !important;
+}
+.tou-uknfeu {
+    background-color: #432c09 !important;
+}
+.tou-6i3zyv {
+    background-color: #245d70 !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></head>
+<body>
+  <div id="div1" style="height: 520px;">
+    <canvas id="mc" "width="200&quot;" height="520" width="1845"></canvas>
+  </div>
+
+</body></html>
