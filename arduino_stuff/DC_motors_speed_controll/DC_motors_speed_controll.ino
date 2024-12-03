@@ -24,7 +24,7 @@ void loop() {
   // Run both motors forward at full speed
   runMotor(1, 255, true);
   runMotor(2, 255, true);
-  delay(2000);
+  delay(4000);
   
   // Stop both motors
   stopMotor(1);
@@ -32,9 +32,9 @@ void loop() {
   delay(1000);
   
   // Run motor A forward and motor B backward at half speed
-  runMotor(1, 128, true);
-  runMotor(2, 128, false);
-  delay(2000);
+  //runMotor(1, 128, true);
+  //runMotor(2, 128, false);
+  //delay(2000);
   
   // Stop both motors
   stopMotor(1);
