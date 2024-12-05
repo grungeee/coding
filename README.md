@@ -1,3 +1,4 @@
 # nvim
 ### my nvim setup
-you are free to check it out and maybe copy something you like
+
+this is maninly a collection of configs and plugins + a not completed Monokai Pro theme i worked on
