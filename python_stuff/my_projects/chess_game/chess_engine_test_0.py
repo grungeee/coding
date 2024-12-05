@@ -139,13 +139,13 @@ def board_setup():
     # while count != len(pieces) -2:
 #     # TODO: - [ ] this is fucking stupid and i gotta fix it
     knight_w1 = list(list(list(game.items())[0][1].items())[0][1].items())[0] #<====== change here /// loop through the dictionary to get the values
-    print(knight_w1)
+    # print(knight_w1)
     piece_col_index = list(knight_w1[1].values())[0]
     piece_row_index = list(knight_w1[1].values())[1]
-    print("--------")
-    print(piece_col_index)
-    print(piece_row_index)
-    print("--------")
+    # print("--------")
+    # print(piece_col_index)
+    # print(piece_row_index)
+    # print("--------")
 
 
     for col_index in range(0, cols_count):
