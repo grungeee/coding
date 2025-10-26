@@ -1,0 +1,4013 @@
+[
+  {
+    "id": "87",
+    "nameDe": "Fahrplandaten Verkehrsverbund Ost-Region (DINO)",
+    "nameEn": "Timetable Data PTA Eastern Region (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Wien, Niederösterreich und Burgenland, ausgenommen die Fahrten der ÖBB, der WESTbahn und der Raaberbahn, und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vienna, Lower Austria and Burgenland, except the ones of ÖBB, WESTbahn and Raaberbahn, and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10852",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18981",
+          "created": "2025-08-22T03:30:59.609Z",
+          "file": {
+            "originalName": "20250822-0025_dino_vor_2025.zip",
+            "size": "43634808"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10852",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18981",
+          "created": "2025-08-22T03:30:59.609Z",
+          "file": {
+            "originalName": "20250822-0025_dino_vor_2025.zip",
+            "size": "43634808"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "86",
+    "nameDe": "Fahrplandaten Verkehrsverbund Steiermark (DINO)",
+    "nameEn": "Timetable Data PTA Styria (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in der Steiermark, ausgenommen die Fahrten der ÖBB und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Styria, except the ones from ÖBB and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10886",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19015",
+          "created": "2025-08-24T03:30:38.645Z",
+          "file": {
+            "originalName": "20250823-2322_dino_verbundlinie_2025.zip",
+            "size": "37432876"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10886",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19015",
+          "created": "2025-08-24T03:30:38.645Z",
+          "file": {
+            "originalName": "20250823-2322_dino_verbundlinie_2025.zip",
+            "size": "37432876"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "85",
+    "nameDe": "Fahrplandaten Salzburger Verkehrsverbund (DINO)",
+    "nameEn": "Timetable Data PTA Salzburg (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Salzburg, ausgenommen die Fahrten der ÖBB und der WESTbahn und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Salzburg, except the ones of ÖBB and WESTbahn and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10864",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18993",
+          "created": "2025-08-22T03:31:37.524Z",
+          "file": {
+            "originalName": "20250821-2358_dino_salzburgverkehr_2025.zip",
+            "size": "10834210"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10864",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18993",
+          "created": "2025-08-22T03:31:37.524Z",
+          "file": {
+            "originalName": "20250821-2358_dino_salzburgverkehr_2025.zip",
+            "size": "10834210"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "84",
+    "nameDe": "Fahrplandaten Verkehrsverbund Kärntner Linien (DINO)",
+    "nameEn": "Timetable Data PTA Carinthia (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Kärnten, ausgenommen die Fahrten der ÖBB und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Carinthia, except the ones of ÖBB and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10860",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18989",
+          "created": "2025-08-22T03:31:28.606Z",
+          "file": {
+            "originalName": "20250821-2357_dino_kaerntnerlinien_2025.zip",
+            "size": "10265329"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10860",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18989",
+          "created": "2025-08-22T03:31:28.606Z",
+          "file": {
+            "originalName": "20250821-2357_dino_kaerntnerlinien_2025.zip",
+            "size": "10265329"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "83",
+    "nameDe": "Fahrplandaten Oberösterreichischer Verkehrsverbund (DINO)",
+    "nameEn": "Timetable Data PTA Upper Austria (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Oberösterreich, ausgenommen die Fahrten der ÖBB und der WESTbahn und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services commissioned and maintained by the public transport authority in Upper Austria, except the ones of ÖBB and WESTbahn and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10807",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18936",
+          "created": "2025-08-20T03:30:48.260Z",
+          "file": {
+            "originalName": "20250819-2311_dino_ooevv_2025.zip",
+            "size": "25263760"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10807",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18936",
+          "created": "2025-08-20T03:30:48.260Z",
+          "file": {
+            "originalName": "20250819-2311_dino_ooevv_2025.zip",
+            "size": "25263760"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "82",
+    "nameDe": "Fahrplandaten Verkehrsverbund Tirol (DINO)",
+    "nameEn": "Timetable Data PTA Tyrol (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Tirol, ausgenommen die Fahrten der ÖBB und der WESTbahn und Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Tyrol, except the ones of ÖBB and WESTbahn and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10848",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18977",
+          "created": "2025-08-22T03:30:22.347Z",
+          "file": {
+            "originalName": "20250822-0004_dino_vvt_2025.zip",
+            "size": "15511855"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10848",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18977",
+          "created": "2025-08-22T03:30:22.347Z",
+          "file": {
+            "originalName": "20250822-0004_dino_vvt_2025.zip",
+            "size": "15511855"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "81",
+    "nameDe": "Fahrplandaten Verkehrsverbund Vorarlberg (DINO)",
+    "nameEn": "Timetable Data PTA Vorarlberg (DINO)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Vorarlberg, ausgenommen die Fahrten der ÖBB und der Montafonerbahn sowie Bedarfsverkehre. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vorarlberg, except the ones of ÖBB and Montafonerbahn and demand responsive transport services. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": null,
+    "documentationUrlEn": null,
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "32",
+        "valueDe": "DINO",
+        "valueEn": "DINO",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10845",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18974",
+          "created": "2025-08-22T03:30:09.531Z",
+          "file": {
+            "originalName": "20250821-2356_dino_vmobil_2025.zip",
+            "size": "8125878"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10845",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18974",
+          "created": "2025-08-22T03:30:09.531Z",
+          "file": {
+            "originalName": "20250821-2356_dino_vmobil_2025.zip",
+            "size": "8125878"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "80",
+    "nameDe": "Fahrplandaten Verkehrsverbund Ost-Region Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Eastern Region Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in Wien, Niederösterreich und Burgenland, ausgenommen die Fahrten der ÖBB, der WESTbahn, der Raaberbahn, der Niederösterreich Bahnen und des CityAirportTrain Vienna. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services maintained by the public transport authority in Vienna, Lower Austria and Burgenland, except the ones of ÖBB, WESTbahn, Raaberbahn, Niederösterreich Bahnen and CityAirportTrain Vienna. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10851",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18980",
+          "created": "2025-08-22T03:30:57.167Z",
+          "file": {
+            "originalName": "20250821-2331_gtfs_flex_vor_2025.zip",
+            "size": "243182974"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10851",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18980",
+          "created": "2025-08-22T03:30:57.167Z",
+          "file": {
+            "originalName": "20250821-2331_gtfs_flex_vor_2025.zip",
+            "size": "243182974"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "79",
+    "nameDe": "Fahrplandaten Verkehrsverbund Steiermark Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Styria Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in der Steiermark, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services maintained by the public transport authority in Styria, except the ones from ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10885",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19014",
+          "created": "2025-08-24T03:30:35.709Z",
+          "file": {
+            "originalName": "20250823-2214_gtfs_flex_verbundlinie_2025.zip",
+            "size": "129949738"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10885",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19014",
+          "created": "2025-08-24T03:30:35.709Z",
+          "file": {
+            "originalName": "20250823-2214_gtfs_flex_verbundlinie_2025.zip",
+            "size": "129949738"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "78",
+    "nameDe": "Fahrplandaten Verkehrsverbund Kärntner Linien Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Carinthia Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in Kärnten, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services maintained by the public transport authority in Carinthia, except the ones of ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10859",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18988",
+          "created": "2025-08-22T03:31:27.944Z",
+          "file": {
+            "originalName": "20250821-2219_gtfs_flex_kaerntnerlinien_2025.zip",
+            "size": "57504729"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10859",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18988",
+          "created": "2025-08-22T03:31:27.944Z",
+          "file": {
+            "originalName": "20250821-2219_gtfs_flex_kaerntnerlinien_2025.zip",
+            "size": "57504729"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "77",
+    "nameDe": "Fahrplandaten Oberösterreichischer Verkehrsverbund Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Upper Austria Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in Oberösterreich, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services commissioned and maintained by the public transport authority in Upper Austria, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10806",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18935",
+          "created": "2025-08-20T03:30:47.394Z",
+          "file": {
+            "originalName": "20250819-2204_gtfs_flex_ooevv_2025.zip",
+            "size": "104993652"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10806",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18935",
+          "created": "2025-08-20T03:30:47.394Z",
+          "file": {
+            "originalName": "20250819-2204_gtfs_flex_ooevv_2025.zip",
+            "size": "104993652"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "75",
+    "nameDe": "Fahrplandaten Verkehrsverbund Vorarlberg Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Vorarlberg Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in Vorarlberg, ausgenommen die Fahrten der ÖBB und der Montafonerbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services maintained by the public transport authority in Vorarlberg, except the ones of ÖBB and Montafonerbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10844",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18973",
+          "created": "2025-08-22T03:30:08.687Z",
+          "file": {
+            "originalName": "20250821-2349_gtfs_flex_vmobil_2025.zip",
+            "size": "20216807"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10844",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18973",
+          "created": "2025-08-22T03:30:08.687Z",
+          "file": {
+            "originalName": "20250821-2349_gtfs_flex_vmobil_2025.zip",
+            "size": "20216807"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "73",
+    "nameDe": "Fahrplandaten Salzburger Verkehrsverbund Flex (GTFS)",
+    "nameEn": "Timetable Data PTA Salzburg Flex (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV und Bedarfsverkehr Angebotes in Salzburg, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public and demand responsive transport services maintained by the public transport authority in Salzburg, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "31",
+        "valueDe": "Flex",
+        "valueEn": "Flex",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10863",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18992",
+          "created": "2025-08-22T03:31:36.815Z",
+          "file": {
+            "originalName": "20250821-2301_gtfs_flex_salzburgverkehr_2025.zip",
+            "size": "63570811"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10863",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18992",
+          "created": "2025-08-22T03:31:36.815Z",
+          "file": {
+            "originalName": "20250821-2301_gtfs_flex_salzburgverkehr_2025.zip",
+            "size": "63570811"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "72",
+    "nameDe": "Fahrplandaten der Steiermark im Format GTFS in sieben Teilen ohne ÖBB",
+    "nameEn": "Timetable Data for Styria in GTFS Format in Seven Parts without Federal Railways",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Die Fahrplandaten der Steiermark werden in sieben Teilen (ohne ÖBB) in einem ZIP-File bereitgestellt.\nDie Daten haben derzeit einen Vorschauhorizont von 4 Monaten und werden täglich automatisch neu erstellt.\nFür den Dateninhalt und seine Qualität wird keine Verantwortung übernommen.\nFür fünf der sieben Teile ist auf Anfrage Echtzeit (GTFS-R) verfügbar. Die Teile sind:\ngkb-at: Graz-Köflacher-Bahn (Eisenbahn)\ngrazholding-at: Holding Graz (Stadtverkehr Graz Straßenbahn, Stadtbus und Nachtbus)\ngrazverbundlinie-at: Restlicher Stadtverkehr Graz (Weitere Stadtbusse, keine Echtzeit verfügbar)\nregiobusverbundlinie-at: RegioBus Steiermark (Markenname für Regionalbusse mit Echtzeit)\nregionalbusverbundlinie-at: Restliche Regionalbusse Steiermark (Weitere Regionalbusse, keine Echtzeit verfügbar)\nstb-at: Steiermarkbahn (Eisenbahn)\nstwl-at: Stadtwerke Leoben (Stadtverkehr Stadtbus Leoben)\nDie Fahrplandaten der Österreichischen Bundesbahnen (ÖBB-Personenverkehrs AG) in der Steiermark sind in diesen Daten nicht enthalten",
+    "descriptionEn": "The timetable data for Styria is provided in seven parts (without ÖBB) in a ZIP file.\nThe data currently has a preview horizon of 4 months and is automatically updated daily.\nNo responsibility is taken for the data content and its quality.\nReal-time (GTFS-R) is available on request for five of the seven parts.\nThe parts are:\ngkb-at: Graz-Köflacher railway (railway)\ngrazholding-at: Holding Graz (Graz city transport tram, city bus and night bus)\ngrazverbundlinie-at: Rest of Graz city transport (other city buses, no real-time available)\nregiobusverbundlinie-at: RegioBus Steiermark (brand name for regional buses with real-time)\nregionalbusverbundlinie-at: Restliche Regionalbusse Steiermark (Other regional buses, no real-time available)\nstb-at: Steiermarkbahn (railway)\nstwl-at: Stadtwerke Leoben (Stadtverkehr Stadtbus Leoben)\nThe timetable data of the Austrian Federal Railways (ÖBB-Personenverkehrs AG) in Styria are not included in this data.",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10887",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19016",
+          "created": "2025-08-24T03:30:42.228Z",
+          "file": {
+            "originalName": "20250823-2045-at-styria-2025.zip",
+            "size": "60408808"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10887",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19016",
+          "created": "2025-08-24T03:30:42.228Z",
+          "file": {
+            "originalName": "20250823-2045-at-styria-2025.zip",
+            "size": "60408808"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "71",
+    "nameDe": "Fahrplandaten Eisenbahn (NeTEx) - Stichtagsdaten Fahrplanwechsel",
+    "nameEn": "Railway Timetable Data (NeTEx) - Reference Data for Timetable Changeover",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die Fahrpläne der ÖBB-Personenverkehr AG (inkl. ÖBB Intercitybus), des CityAirportTrain Vienna (CAT), der Niederösterreich Bahnen (NÖVOG), der Raaberbahn/GYSEV, der Montafonerbahn, der WESTbahn sowie der Bahnen der Österreichischen Gesellschaft für Eisenbahngeschichte (ÖGEG) für das gesamte Fahrplanjahr zum Stichtag des jeweiligen Fahrplanwechsels (jeweils am zweiten Samstag im Dezember um 24:00 Uhr) bis zum darauffolgenden Fahrplanwechsel. In diesem Datenpaket nicht beinhaltete Bahnen sind im Datenpaket des jeweils zuständigen Verkehrsverbundes enthalten. Bei grenzüberschreitenden Verkehren sind aus rechtlichen Gründen mitunter nicht alle Zwischenhalte im Ausland enthalten.",
+    "descriptionEn": "This dataset contains the timetables of the ÖBB-Personenverkehr AG (incl. ÖBB Intercity bus), the CityAirportTrain Vienna (CAT), the Lower Austria Railways (NÖVOG), the Raaberbahn/GYSEV, the Montafonerbahn, the WESTbahn and the railways of the Austrian Society for Railway History (ÖGEG) including data for the entire timetable period as of the resepective timetable change date (second Saturday of December at 11:59 pm) up to the following timetable change date. Railways not included in this data package are included in the data package of the responsible public transport authority. In case of timetables for cross-border traffic, due to legal reasons not all stopovers abroad may be included.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "7283",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "15412",
+          "created": "2025-02-10T12:03:16.251Z",
+          "file": {
+            "originalName": "NeTEx-Export_2025_obb.zip",
+            "size": "43446504"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "7283",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "15412",
+          "created": "2025-02-10T12:03:16.251Z",
+          "file": {
+            "originalName": "NeTEx-Export_2025_obb.zip",
+            "size": "43446504"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "70",
+    "nameDe": "Fahrplandaten Eisenbahn (GTFS) - Stichtagsdaten Fahrplanwechsel",
+    "nameEn": "Railway Timetable Data (GTFS) - Reference Data for Timetable Changeover",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die Fahrpläne der ÖBB-Personenverkehr AG (inkl. ÖBB Intercitybus), des CityAirportTrain Vienna (CAT), der Niederösterreich Bahnen (NÖVOG), der Raaberbahn/GYSEV, der Montafonerbahn, der WESTbahn sowie der Bahnen der Österreichischen Gesellschaft für Eisenbahngeschichte (ÖGEG) für das gesamte Fahrplanjahr zum Stichtag des jeweiligen Fahrplanwechsels (jeweils am zweiten Samstag im Dezember um 24:00 Uhr) bis zum darauffolgenden Fahrplanwechsel. In diesem Datenpaket nicht beinhaltete Bahnen sind im Datenpaket des jeweils zuständigen Verkehrsverbundes enthalten. Bei grenzüberschreitenden Verkehren sind aus rechtlichen Gründen mitunter nicht alle Zwischenhalte im Ausland enthalten.",
+    "descriptionEn": "This dataset contains the timetables of the ÖBB-Personenverkehr AG (incl. ÖBB Intercity bus), the CityAirportTrain Vienna (CAT), the Lower Austria Railways (NÖVOG), the Raaberbahn/GYSEV, the Montafonerbahn, the WESTbahn and the railways of the Austrian Society for Railway History (ÖGEG) including data for the entire timetable period as of the resepective timetable change date (second Saturday of December at 11:59 pm) up to the following timetable change date. Railways not included in this data package are included in the data package of the responsible public transport authority. In case of timetables for cross-border traffic, due to legal reasons not all stopovers abroad may be included.",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "7282",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "15411",
+          "created": "2025-02-10T12:02:05.929Z",
+          "file": {
+            "originalName": "GTFS_2025_obb.zip",
+            "size": "179924615"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "7282",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "15411",
+          "created": "2025-02-10T12:02:05.929Z",
+          "file": {
+            "originalName": "GTFS_2025_obb.zip",
+            "size": "179924615"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "69",
+    "nameDe": "Fahrplandaten Linz AG (GTFS)",
+    "nameEn": "Timetable Data Linz AG (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des von Linz AG beauftragten und gepflegten ÖPNV Angebotes. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services commissioned and maintained by Linz AG. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10866",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18995",
+          "created": "2025-08-22T03:31:38.405Z",
+          "file": {
+            "originalName": "20250821-2212_gtfs_esg_2025.zip",
+            "size": "3300860"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10866",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18995",
+          "created": "2025-08-22T03:31:38.405Z",
+          "file": {
+            "originalName": "20250821-2212_gtfs_esg_2025.zip",
+            "size": "3300860"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "68",
+    "nameDe": "Fahrplandaten Linz AG (NeTEx)",
+    "nameEn": "Timetable Data Linz AG (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des von Linz AG beauftragten und gepflegten ÖPNV Angebotes. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services commissioned and maintained by Linz AG. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10865",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18994",
+          "created": "2025-08-22T03:31:38.104Z",
+          "file": {
+            "originalName": "20250821-2148_netex_esg_2025.zip",
+            "size": "13212049"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10865",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18994",
+          "created": "2025-08-22T03:31:38.104Z",
+          "file": {
+            "originalName": "20250821-2148_netex_esg_2025.zip",
+            "size": "13212049"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "67",
+    "nameDe": "Fahrplandaten Eisenbahn (NeTEx) - aktuell",
+    "nameEn": "Railway Timetable Data (NeTEx) - Current Reference Data",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrpläne der ÖBB-Personenverkehr AG (inkl. ÖBB Intercitybus), der Raaberbahn/GYSEV, der Montafonerbahn, der WESTbahn sowie der Bahnen der Österreichischen Gesellschaft für Eisenbahngeschichte (ÖGEG). Die Dateninhalte bilden das jeweilige Fahrplanjahr vom Datum der Aktualisierung bis zum folgenden Fahrplanwechsel (jeweils am zweiten Samstag im Dezember um 24:00 Uhr) und jeweils 60 Tage in die Vergangenheit ab. In diesem Datenpaket nicht beinhaltete Bahnen sind im Datenpaket des jeweils zuständigen Verkehrsverbundes enthalten. Bei grenzüberschreitenden Verkehren sind aus rechtlichen Gründen mitunter nicht alle Zwischenhalte im Ausland enthalten.",
+    "descriptionEn": "This dataset contains the constantly updated timetables of the ÖBB-Personenverkehr AG (incl. ÖBB Intercity bus), the Raaberbahn/GYSEV, the Montafonerbahn, the WESTbahn and the railways of the Austrian Society for Railway History (ÖGEG). The dataset includes data for the respective timetable period from the dataset’s updating date up to the following timetable change date (second Saturday of December at 11:59 pm) as well as 60 days into the past. Railways not included in this data package are included in the data package of the responsible public transport authority. In case of timetables for cross-border traffic, due to legal reasons not all stopovers abroad may be included.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10834",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18963",
+          "created": "2025-08-21T03:30:40.849Z",
+          "file": {
+            "originalName": "20250820-2155_netex_evu_2025.zip",
+            "size": "58289463"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10834",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18963",
+          "created": "2025-08-21T03:30:40.849Z",
+          "file": {
+            "originalName": "20250820-2155_netex_evu_2025.zip",
+            "size": "58289463"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "66",
+    "nameDe": "Fahrplandaten Eisenbahn (GTFS) - aktuell",
+    "nameEn": "Railway Timetable Data (GTFS) - Current Reference Data",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrpläne der ÖBB-Personenverkehr AG (inkl. ÖBB Intercitybus), der Raaberbahn/GYSEV, der Montafonerbahn, der WESTbahn sowie der Bahnen der Österreichischen Gesellschaft für Eisenbahngeschichte (ÖGEG). Die Dateninhalte bilden das jeweilige Fahrplanjahr vom Datum der Aktualisierung bis zum folgenden Fahrplanwechsel (jeweils am zweiten Samstag im Dezember um 24:00 Uhr) und jeweils 60 Tage in die Vergangenheit ab. In diesem Datenpaket nicht beinhaltete Bahnen sind im Datenpaket des jeweils zuständigen Verkehrsverbundes enthalten. Bei grenzüberschreitenden Verkehren sind aus rechtlichen Gründen mitunter nicht alle Zwischenhalte im Ausland enthalten.",
+    "descriptionEn": "This dataset contains the constantly updated timetables of the ÖBB-Personenverkehr AG (incl. ÖBB Intercity bus), the Raaberbahn/GYSEV, the Montafonerbahn, the WESTbahn and the railways of the Austrian Society for Railway History (ÖGEG). The dataset includes data for the respective timetable period from the dataset’s updating date up to the following timetable change date (second Saturday of December at 11:59 pm) as well as 60 days into the past. Railways not included in this data package are included in the data package of the responsible public transport authority. In case of timetables for cross-border traffic, due to legal reasons not all stopovers abroad may be included.",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10835",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18964",
+          "created": "2025-08-21T03:30:49.242Z",
+          "file": {
+            "originalName": "20250820-2321_gtfs_evu_2025.zip",
+            "size": "216540794"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10835",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18964",
+          "created": "2025-08-21T03:30:49.242Z",
+          "file": {
+            "originalName": "20250820-2321_gtfs_evu_2025.zip",
+            "size": "216540794"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "65",
+    "nameDe": "Fahrplandaten Verkehrsverbund Vorarlberg (NeTEx)",
+    "nameEn": "Timetable Data PTA Vorarlberg (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Vorarlberg, ausgenommen die Fahrten der ÖBB und der Montafonerbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vorarlberg, except the ones of ÖBB and Montafonerbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10842",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18971",
+          "created": "2025-08-22T03:30:06.148Z",
+          "file": {
+            "originalName": "20250821-2152_netex_vmobil_2025.zip",
+            "size": "12922295"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10842",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18971",
+          "created": "2025-08-22T03:30:06.148Z",
+          "file": {
+            "originalName": "20250821-2152_netex_vmobil_2025.zip",
+            "size": "12922295"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "64",
+    "nameDe": "Fahrplandaten Verkehrsverbund Tirol (NeTEx)",
+    "nameEn": "Timetable Data PTA Tyrol (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Tirol, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Tyrol, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10846",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18975",
+          "created": "2025-08-22T03:30:12.329Z",
+          "file": {
+            "originalName": "20250821-2211_netex_vvt_2025.zip",
+            "size": "35753397"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10846",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18975",
+          "created": "2025-08-22T03:30:12.329Z",
+          "file": {
+            "originalName": "20250821-2211_netex_vvt_2025.zip",
+            "size": "35753397"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "63",
+    "nameDe": "Fahrplandaten Oberösterreichischer Verkehrsverbund (NeTEx)",
+    "nameEn": "Timetable Data PTA Upper Austria (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Oberösterreich, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services commissioned and maintained by the public transport authority in Upper Austria, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10804",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18933",
+          "created": "2025-08-20T03:30:38.356Z",
+          "file": {
+            "originalName": "20250819-2200_netex_ooevv_2025.zip",
+            "size": "46947446"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10804",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18933",
+          "created": "2025-08-20T03:30:38.356Z",
+          "file": {
+            "originalName": "20250819-2200_netex_ooevv_2025.zip",
+            "size": "46947446"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "62",
+    "nameDe": "Fahrplandaten Verkehrsverbund Kärntner Linien (NeTEx)",
+    "nameEn": "Timetable Data PTA Carinthia (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Kärnten, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Carinthia, except the ones of ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10857",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18986",
+          "created": "2025-08-22T03:31:21.926Z",
+          "file": {
+            "originalName": "20250821-2157_netex_kaerntnerlinien_2025.zip",
+            "size": "22314507"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10857",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18986",
+          "created": "2025-08-22T03:31:21.926Z",
+          "file": {
+            "originalName": "20250821-2157_netex_kaerntnerlinien_2025.zip",
+            "size": "22314507"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "61",
+    "nameDe": "Fahrplandaten Salzburger Verkehrsverbund (NeTEx)",
+    "nameEn": "Timetable Data PTA Salzburg (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Salzburg, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Salzburg, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10861",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18990",
+          "created": "2025-08-22T03:31:30.189Z",
+          "file": {
+            "originalName": "20250821-2201_netex_salzburgverkehr_2025.zip",
+            "size": "30547399"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10861",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18990",
+          "created": "2025-08-22T03:31:30.189Z",
+          "file": {
+            "originalName": "20250821-2201_netex_salzburgverkehr_2025.zip",
+            "size": "30547399"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "60",
+    "nameDe": "Fahrplandaten Verkehrsverbund Steiermark (NeTEx)",
+    "nameEn": "Timetable Data PTA Styria (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in der Steiermark, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Styria, except the ones from ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10883",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19012",
+          "created": "2025-08-24T03:30:16.059Z",
+          "file": {
+            "originalName": "20250823-2254_netex_verbundlinie_2025.zip",
+            "size": "110381803"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10883",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19012",
+          "created": "2025-08-24T03:30:16.059Z",
+          "file": {
+            "originalName": "20250823-2254_netex_verbundlinie_2025.zip",
+            "size": "110381803"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "59",
+    "nameDe": "Fahrplandaten Verkehrsverbund Ost-Region (NeTEx)",
+    "nameEn": "Timetable Data PTA Eastern Region (NeTEx)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Wien, Niederösterreich und Burgenland, ausgenommen die Fahrten der ÖBB, der WESTbahn und der Raaberbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vienna, Lower Austria and Burgenland, except the ones of ÖBB, WESTbahn and Raaberbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/NET/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "3",
+        "valueDe": "NeTEx",
+        "valueEn": "NeTEx",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10849",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18978",
+          "created": "2025-08-22T03:30:31.136Z",
+          "file": {
+            "originalName": "20250821-2325_netex_vor_2025.zip",
+            "size": "144713744"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10849",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18978",
+          "created": "2025-08-22T03:30:31.136Z",
+          "file": {
+            "originalName": "20250821-2325_netex_vor_2025.zip",
+            "size": "144713744"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "58",
+    "nameDe": "Fahrplandaten Verkehrsverbund Vorarlberg (GTFS)",
+    "nameEn": "Timetable Data PTA Vorarlberg (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Vorarlberg, ausgenommen die Fahrten der ÖBB und der Montafonerbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vorarlberg, except the ones of ÖBB and Montafonerbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10843",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18972",
+          "created": "2025-08-22T03:30:07.480Z",
+          "file": {
+            "originalName": "20250821-2349_gtfs_vmobil_2025.zip",
+            "size": "20015467"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10843",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18972",
+          "created": "2025-08-22T03:30:07.480Z",
+          "file": {
+            "originalName": "20250821-2349_gtfs_vmobil_2025.zip",
+            "size": "20015467"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "57",
+    "nameDe": "Fahrplandaten Verkehrsverbund Tirol (GTFS)",
+    "nameEn": "Timetable Data PTA Tyrol (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Tirol, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Tyrol, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10847",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18976",
+          "created": "2025-08-22T03:30:21.480Z",
+          "file": {
+            "originalName": "20250821-2345_gtfs_vvt_2025.zip",
+            "size": "147744656"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10847",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18976",
+          "created": "2025-08-22T03:30:21.480Z",
+          "file": {
+            "originalName": "20250821-2345_gtfs_vvt_2025.zip",
+            "size": "147744656"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "56",
+    "nameDe": "Fahrplandaten Oberösterreichischer Verkehrsverbund (GTFS)",
+    "nameEn": "Timetable Data PTA Upper Austria (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Oberösterreich, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services commissioned and maintained by the public transport authority in Upper Austria, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10805",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18934",
+          "created": "2025-08-20T03:30:42.755Z",
+          "file": {
+            "originalName": "20250819-2204_gtfs_ooevv_2025.zip",
+            "size": "104831380"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10805",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18934",
+          "created": "2025-08-20T03:30:42.755Z",
+          "file": {
+            "originalName": "20250819-2204_gtfs_ooevv_2025.zip",
+            "size": "104831380"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "55",
+    "nameDe": "Fahrplandaten Verkehrsverbund Kärntner Linien (GTFS)",
+    "nameEn": "Timetable Data PTA Carinthia (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Kärnten, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Carinthia, except the ones of ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10858",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18987",
+          "created": "2025-08-22T03:31:25.210Z",
+          "file": {
+            "originalName": "20250821-2219_gtfs_kaerntnerlinien_2025.zip",
+            "size": "56833206"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10858",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18987",
+          "created": "2025-08-22T03:31:25.210Z",
+          "file": {
+            "originalName": "20250821-2219_gtfs_kaerntnerlinien_2025.zip",
+            "size": "56833206"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "54",
+    "nameDe": "Fahrplandaten Salzburger Verkehrsverbund (GTFS)",
+    "nameEn": "Timetable Data PTA Salzburg (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Salzburg, ausgenommen die Fahrten der ÖBB und der WESTbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Salzburg, except the ones of ÖBB and WESTbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10862",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18991",
+          "created": "2025-08-22T03:31:33.546Z",
+          "file": {
+            "originalName": "20250821-2301_gtfs_salzburgverkehr_2025.zip",
+            "size": "62906534"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10862",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18991",
+          "created": "2025-08-22T03:31:33.546Z",
+          "file": {
+            "originalName": "20250821-2301_gtfs_salzburgverkehr_2025.zip",
+            "size": "62906534"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "53",
+    "nameDe": "Fahrplandaten Verkehrsverbund Steiermark (GTFS)",
+    "nameEn": "Timetable Data PTA Styria (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in der Steiermark, ausgenommen die Fahrten der ÖBB. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Styria, except the ones from ÖBB. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10884",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19013",
+          "created": "2025-08-24T03:30:26.168Z",
+          "file": {
+            "originalName": "20250823-2214_gtfs_verbundlinie_2025.zip",
+            "size": "128765020"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10884",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19013",
+          "created": "2025-08-24T03:30:26.168Z",
+          "file": {
+            "originalName": "20250823-2214_gtfs_verbundlinie_2025.zip",
+            "size": "128765020"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "52",
+    "nameDe": "Fahrplandaten Verkehrsverbund Ost-Region (GTFS)",
+    "nameEn": "Timetable Data PTA Eastern Region (GTFS)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die laufend aktualisierten Fahrplandaten des vom Verkehrsverbund gepflegten ÖPNV Angebotes in Wien, Niederösterreich und Burgenland, ausgenommen die Fahrten der ÖBB, der WESTbahn und der Raaberbahn. Die Dateninhalte bilden das gesamte jeweilige Fahrplanjahr (vom/bis zum zweiten Samstag im Dezember um 24:00 Uhr) ab.",
+    "descriptionEn": "This data set contains the constantly updated timetable data of the public transport services maintained by the public transport authority in Vienna, Lower Austria and Burgenland, except the ones of ÖBB, WESTbahn and Raaberbahn. The dataset includes data for the respective timetable period (from/to the second Saturday of December at 11:59 pm).",
+    "documentationUrlDe": "https://gtfs.org/reference/static",
+    "documentationUrlEn": "https://gtfs.org/reference/static",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "20",
+        "valueDe": "GTFS",
+        "valueEn": "GTFS",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "4",
+        "valueDe": "Fahrplan",
+        "valueEn": "Timetable",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10850",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18979",
+          "created": "2025-08-22T03:30:44.425Z",
+          "file": {
+            "originalName": "20250821-2331_gtfs_vor_2025.zip",
+            "size": "240066938"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10850",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "18979",
+          "created": "2025-08-22T03:30:44.425Z",
+          "file": {
+            "originalName": "20250821-2331_gtfs_vor_2025.zip",
+            "size": "240066938"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "51",
+    "nameDe": "Liniennetz (SHAPE)",
+    "nameEn": "Line Network (SHAPE)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält das laufend aktualisierte Liniennetz, das von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr befahren wird.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated line network that is served by the public transport services within the area of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "24",
+        "valueDe": "Liniennetz",
+        "valueEn": "Line Network",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "23",
+        "valueDe": "SHAPE",
+        "valueEn": "SHAPE",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10878",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19007",
+          "created": "2025-08-24T03:10:09.194Z",
+          "file": {
+            "originalName": "20250823-2349_line_shape_2025.zip",
+            "size": "167088200"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10878",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19007",
+          "created": "2025-08-24T03:10:09.194Z",
+          "file": {
+            "originalName": "20250823-2349_line_shape_2025.zip",
+            "size": "167088200"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "50",
+    "nameDe": "Liniennetz (JSON)",
+    "nameEn": "Line Network (JSON)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält das laufend aktualisierte Liniennetz, das von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr befahren wird.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated line network that is served by the public transport services within the area of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "25",
+        "valueDe": "JSON",
+        "valueEn": "JSON",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "24",
+        "valueDe": "Liniennetz",
+        "valueEn": "Line Network",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10879",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19008",
+          "created": "2025-08-24T03:10:13.253Z",
+          "file": {
+            "originalName": "20250823-2349_line_json_2025.zip",
+            "size": "108255340"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10879",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19008",
+          "created": "2025-08-24T03:10:13.253Z",
+          "file": {
+            "originalName": "20250823-2349_line_json_2025.zip",
+            "size": "108255340"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "49",
+    "nameDe": "Liniennetz (CSV)",
+    "nameEn": "Line Network (CSV)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält das laufend aktualisierte Liniennetz, das von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr befahren wird.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated line network that is served by the public transport services within the area of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "24",
+        "valueDe": "Liniennetz",
+        "valueEn": "Line Network",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "26",
+        "valueDe": "CSV",
+        "valueEn": "CSV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10880",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19009",
+          "created": "2025-08-24T03:10:16.613Z",
+          "file": {
+            "originalName": "20250823-2349_line_csv_2025.zip",
+            "size": "103059656"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10880",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19009",
+          "created": "2025-08-24T03:10:16.613Z",
+          "file": {
+            "originalName": "20250823-2349_line_csv_2025.zip",
+            "size": "103059656"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "48",
+    "nameDe": "Haltestellen (SHAPE)",
+    "nameEn": "Stops (SHAPE)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält die laufend aktualisierte Liste jener Haltestellen, die von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr bedient werden.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated list of those stops that are served by the public transport services within the network of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "23",
+        "valueDe": "SHAPE",
+        "valueEn": "SHAPE",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "21",
+        "valueDe": "Haltestellen",
+        "valueEn": "Stops",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "4881",
+        "active": true,
+        "year": "2024",
+        "dataSetVersion": {
+          "id": "13010",
+          "created": "2024-09-30T03:10:17.449Z",
+          "file": {
+            "originalName": "20240930-0330_hst_shape_2024.zip",
+            "size": "7829705"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "4881",
+        "active": true,
+        "year": "2024",
+        "dataSetVersion": {
+          "id": "13010",
+          "created": "2024-09-30T03:10:17.449Z",
+          "file": {
+            "originalName": "20240930-0330_hst_shape_2024.zip",
+            "size": "7829705"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "47",
+    "nameDe": "Haltestellen (JSON)",
+    "nameEn": "Stops (JSON)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält die laufend aktualisierte Liste jener Haltestellen, die von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr bedient werden.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated list of those stops that are served by the public transport services within the network of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "21",
+        "valueDe": "Haltestellen",
+        "valueEn": "Stops",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "25",
+        "valueDe": "JSON",
+        "valueEn": "JSON",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10881",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19010",
+          "created": "2025-08-24T03:10:17.267Z",
+          "file": {
+            "originalName": "20250823-2349_hst_json_2025.zip",
+            "size": "5708843"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10881",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19010",
+          "created": "2025-08-24T03:10:17.267Z",
+          "file": {
+            "originalName": "20250823-2349_hst_json_2025.zip",
+            "size": "5708843"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "46",
+    "nameDe": "Haltestellen (CSV)",
+    "nameEn": "Stops (CSV)",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser österreichweite Datensatz enthält die laufend aktualisierte Liste jener Haltestellen, die von den Verkehren im Verbundangebot im jeweiligen Fahrplanjahr bedient werden.",
+    "descriptionEn": "This Austrian-wide data set contains the constantly updated list of those stops that are served by the public transport services within the network of the public transport authorities in the respective timetable period.",
+    "documentationUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "documentationUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/GEO/overview",
+    "termsOfUseUrlDe": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "12",
+        "valueDe": "Salzburg",
+        "valueEn": "Salzburg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "11",
+        "valueDe": "Salzburg Verkehr",
+        "valueEn": "Salzburg Verkehr",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "7",
+        "valueDe": "OÖVV",
+        "valueEn": "OÖVV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "26",
+        "valueDe": "CSV",
+        "valueEn": "CSV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "21",
+        "valueDe": "Haltestellen",
+        "valueEn": "Stops",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "18",
+        "valueDe": "Niederösterreich",
+        "valueEn": "Lower Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "16",
+        "valueDe": "VOR",
+        "valueEn": "VOR",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "9",
+        "valueDe": "Kärnten",
+        "valueEn": "Carinthia",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "6",
+        "valueDe": "Tirol",
+        "valueEn": "Tyrol",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "5",
+        "valueDe": "VVT",
+        "valueEn": "VVT",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "2",
+        "valueDe": "Vorarlberg",
+        "valueEn": "Vorarlberg",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "1",
+        "valueDe": "VMOBIL",
+        "valueEn": "VMOBIL",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "17",
+        "valueDe": "Wien",
+        "valueEn": "Vienna",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "8",
+        "valueDe": "Oberösterreich",
+        "valueEn": "Upper Austria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "14",
+        "valueDe": "Verbund Linie",
+        "valueEn": "Verbund Linie",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "13",
+        "valueDe": "Steiermark",
+        "valueEn": "Styria",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "10",
+        "valueDe": "Kärnter Linien",
+        "valueEn": "Kärnter Linien",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "29",
+        "valueDe": "Linz AG",
+        "valueEn": "Linz AG",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "19",
+        "valueDe": "Burgenland",
+        "valueEn": "Burgenland",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "10882",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19011",
+          "created": "2025-08-24T03:10:17.832Z",
+          "file": {
+            "originalName": "20250823-2348_hst_csv_2025.zip",
+            "size": "4299054"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "10882",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "19011",
+          "created": "2025-08-24T03:10:17.832Z",
+          "file": {
+            "originalName": "20250823-2348_hst_csv_2025.zip",
+            "size": "4299054"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "nameDe": "OJP Übergabepunkte",
+    "nameEn": "Open Journey Planner Transfer Points",
+    "active": true,
+    "license": {
+      "id": "1",
+      "nameDe": "Datenlizenz Mobilitätsverbünde Österreich",
+      "nameEn": "Data License Mobilitätsverbünde Österreich"
+    },
+    "descriptionDe": "Dieser Datensatz enthält die aus/für Österreich relevanten Übergabepunkte für OJP Services. Das Österreichische OJP Service befindet sich derzeit im Aufbau durch die Verkehrsauskunft Österreich (VAO), weitere Informationen sind unter www.verkehrsauskunft.at und www.alpine-space.eu/linkingalps zu finden ",
+    "descriptionEn": "This data set contains the exchange points relevant from / for Austria for OJP Services. The Austrian OJP Service is currently under development by Verkehrsauskunft Österreich (VAO), further information can be found at www.verkehrsauskunft.at and www.alpine-space.eu/linkingalps ",
+    "documentationUrlDe": "https://arge-oevv.atlassian.net/wiki/spaces/GEO/pages/185892865/OJP+bergabepunkte",
+    "documentationUrlEn": "https://arge-oevv.atlassian.net/wiki/spaces/GEO/pages/185892865/OJP+bergabepunkte",
+    "termsOfUseUrlDe": "https://arge-oevv.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen",
+    "termsOfUseUrlEn": "https://arge-oevv.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use",
+    "tags": [
+      {
+        "id": "21",
+        "valueDe": "Haltestellen",
+        "valueEn": "Stops",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "26",
+        "valueDe": "CSV",
+        "valueEn": "CSV",
+        "numberOfDataSets": 0
+      },
+      {
+        "id": "27",
+        "valueDe": "OJP",
+        "valueEn": "OJP",
+        "numberOfDataSets": 0
+      }
+    ],
+    "activeVersions": [
+      {
+        "id": "8589",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "16718",
+          "created": "2025-04-25T21:01:04.122Z",
+          "file": {
+            "originalName": "exchangepoints.csv",
+            "size": "256180"
+          },
+          "deleted": false
+        }
+      }
+    ],
+    "latestVersions": [
+      {
+        "id": "8589",
+        "active": true,
+        "year": "2025",
+        "dataSetVersion": {
+          "id": "16718",
+          "created": "2025-04-25T21:01:04.122Z",
+          "file": {
+            "originalName": "exchangepoints.csv",
+            "size": "256180"
+          },
+          "deleted": false
+        }
+      }
+    ]
+  }
+]

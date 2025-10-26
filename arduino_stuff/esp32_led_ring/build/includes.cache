@@ -1,0 +1,381 @@
+[
+  {
+    "added_include_path": "/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32"
+  },
+  {
+    "added_include_path": "/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32"
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": "Adafruit_NeoPixel.h"
+  },
+  {
+    "added_include_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel"
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/sketch/esp32_led_ring.ino.cpp",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/Adafruit_Neopixel_RP2.cpp",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/esp.c",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/esp.c.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/esp.c.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/esp.c",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/esp8266.c",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/esp8266.c.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/esp8266.c.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/esp8266.c",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/kendyte_k210.c",
+      "object_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/kendyte_k210.c.o",
+      "depfile_path": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/libraries/Adafruit_NeoPixel/kendyte_k210.c.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp-x32/2405/bin/xtensa-esp32-elf-g++",
+        "-c",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/cpp_flags",
+        "-w",
+        "-Os",
+        "-Werror=return-type",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-DF_CPU=240000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_ESP32_DEV",
+        "-DARDUINO_ARCH_ESP32",
+        "-DARDUINO_BOARD=\"ESP32_DEV\"",
+        "-DARDUINO_VARIANT=\"esp32\"",
+        "-DARDUINO_PARTITION_default",
+        "-DARDUINO_HOST_OS=\"linux\"",
+        "-DARDUINO_FQBN=\"esp32:esp32:esp32\"",
+        "-DESP32=ESP32",
+        "-DCORE_DEBUG_LEVEL=0",
+        "-DARDUINO_RUNNING_CORE=1",
+        "-DARDUINO_EVENT_RUNNING_CORE=1",
+        "-DARDUINO_USB_CDC_ON_BOOT=0",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/defines",
+        "-I/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring",
+        "-iprefix",
+        "/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/include/",
+        "@/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/flags/includes",
+        "-I/home/grungeee/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.3-cfea4f7c-v1/esp32/qio_qspi/include",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/cores/esp32",
+        "-I/home/grungeee/.arduino15/packages/esp32/hardware/esp32/3.1.1/variants/esp32",
+        "-I/home/grungeee/Arduino/libraries/Adafruit_NeoPixel",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/build_opt.h",
+        "@/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring/build/file_opts",
+        "/home/grungeee/Arduino/libraries/Adafruit_NeoPixel/kendyte_k210.c",
+        "-o",
+        "/dev/null"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  }
+]
