@@ -66,9 +66,9 @@ constexpr float LINEAR_ACCEL_BRAKE_DECAY_GAIN = 0.55f;
 constexpr float FIRE_IDLE_RED = 1.0f;
 constexpr float FIRE_IDLE_GREEN = 0.05f;
 constexpr float FIRE_IDLE_BLUE = 0.0f;
-constexpr float EMBER_FINAL_RED = 0.52f;
-constexpr float EMBER_FINAL_GREEN = 0.0f;
-constexpr float EMBER_FINAL_BLUE = 0.0f;
+constexpr float EMBER_FINAL_RED = 0.16f;
+constexpr float EMBER_FINAL_GREEN = 0.02f;
+constexpr float EMBER_FINAL_BLUE = 0.48f;
 constexpr uint8_t FIRE_TOGGLE_REQUIRED_OFFS = 3;  // right-blinker cancellations needed to toggle fire effect
 constexpr uint32_t FIRE_TOGGLE_MAX_INTERVAL_MS = 1500;  // max gap between offs before the sequence resets
 
@@ -348,13 +348,13 @@ uint32_t composeExhaustColor(Adafruit_NeoPixel &strip,
                              uint8_t phaseOffset,
                              float motionFactor,
                              float prevMotionFactor) {
-  // Base palettes: tweak warmR/G/B for idle glow and coolR/G/B for high-speed tint.
+  // Base palettes: warm tones at idle, blending to a purple peak at high motion.
   const float warmR = 0.92f;
   const float warmG = 0.30f;
   const float warmB = 0.04f;
-  const float coolR = 0.26f;
-  const float coolG = 0.34f;  // lower green here to avoid teal as blue ramps up
-  const float coolB = 1.05f;  // raise this to intensify the peak blue hue
+  const float coolR = 0.74f;
+  const float coolG = 0.08f;
+  const float coolB = 0.98f;
 
   float normalizedMotion = fminf(fmaxf(motionFactor, 0.0f), 1.0f);
   float normalizedPrev = fminf(fmaxf(prevMotionFactor, 0.0f), 1.0f);
@@ -382,8 +382,9 @@ uint32_t composeExhaustColor(Adafruit_NeoPixel &strip,
     intensity = fminf(fmaxf(intensity * modulation, 0.02f), 1.0f);
   }
 
-  float warmMix = 1.0f - shapedMotion;
-  float coolMix = shapedMotion;
+  // Keep low/mid motion warm; reserve the purple palette for near-peak motion only.
+  float coolMix = powf(shapedMotion, 2.35f);
+  float warmMix = 1.0f - coolMix;
 
   float redRatio = (warmMix * warmR) + (coolMix * coolR);
   float greenRatio = (warmMix * warmG) + (coolMix * coolG);
@@ -400,13 +401,13 @@ uint32_t composeExhaustColor(Adafruit_NeoPixel &strip,
 
   float redOffset = coolingPhase ? 0.017f : 0.020f;
   float greenOffset = coolingPhase ? 0.005f : 0.007f;
-  float blueOffset = coolingPhase ? 0.005f : 0.006f;
+  float blueOffset = coolingPhase ? 0.004f : 0.005f;
 
   float red = fminf((redRatio * intensity) + redOffset, 1.0f);
   float green = fminf((greenRatio * intensity) + greenOffset, 1.0f);
   float blueControl = coolingPhase ? powf(normalizedMotion, 1.20f) : persistenceMotion;
   float blueBase = (blueRatio * intensity) + blueOffset;
-  float blueMultiplier = coolingPhase ? (1.0f + 0.22f * blueControl) : (1.0f + 0.40f * blueControl);
+  float blueMultiplier = coolingPhase ? (1.0f + 0.26f * blueControl) : (1.0f + 0.34f * blueControl);
   float blue = fminf(blueBase * blueMultiplier, 1.0f);
 
   uint8_t redByte = static_cast<uint8_t>(constrain(static_cast<int>(red * 255.0f), 0, 255));
@@ -417,12 +418,12 @@ uint32_t composeExhaustColor(Adafruit_NeoPixel &strip,
     uint8_t sparkChance = random(0, coolingPhase ? 165 : 135);
     uint8_t threshold = static_cast<uint8_t>(shapedMotion * (coolingPhase ? 22.0f : 32.0f));
     if (sparkChance < threshold) {
-      uint8_t redBoost = random(36, coolingPhase ? 70 : 82);
-      uint8_t amberBoost = random(9, coolingPhase ? 20 : 24);
+      uint8_t redBoost = random(24, coolingPhase ? 54 : 66);
+      uint8_t amberBoost = random(4, coolingPhase ? 12 : 16);
       redByte = constrain(redByte + redBoost, 0, 255);
       greenByte = constrain(greenByte + amberBoost, 0, 255);
       if (!coolingPhase && shapedMotion > 0.72f) {
-        blueByte = constrain(blueByte + random(4, 14), 0, 255);
+        blueByte = constrain(blueByte + random(10, 24), 0, 255);
       }
     }
   }
@@ -459,9 +460,9 @@ void renderStopFlareFrame(Adafruit_NeoPixel &strip, uint32_t elapsedMs) {
   const float bottomRed = 1.0f;
   const float bottomGreen = 0.36f;
   const float bottomBlue = 0.04f;
-  const float topRed = 1.0f;
-  const float topGreen = 0.94f;
-  const float topBlue = 0.82f;
+  const float topRed = 0.52f;
+  const float topGreen = 0.16f;
+  const float topBlue = 1.0f;
 
   for (uint16_t i = 0; i < LED_COUNT; i++) {
     float angle = (TWO_PI_F * static_cast<float>(i)) / static_cast<float>(LED_COUNT);
@@ -487,10 +488,10 @@ void renderStopFlareFrame(Adafruit_NeoPixel &strip, uint32_t elapsedMs) {
     float blue = fminf(blueRatio * baseIntensity, 1.0f);
 
     if (vertical > 0.8f && random(0, 100) < 12) {
-      float whiteKick = 0.12f * (1.0f - progress);
-      red = fminf(red + whiteKick, 1.0f);
-      green = fminf(green + whiteKick, 1.0f);
-      blue = fminf(blue + whiteKick * 0.95f, 1.0f);
+      float coolKick = 0.12f * (1.0f - progress);
+      red = fminf(red + (coolKick * 0.28f), 1.0f);
+      green = fminf(green + (coolKick * 0.18f), 1.0f);
+      blue = fminf(blue + coolKick, 1.0f);
     }
 
     uint8_t redByte = static_cast<uint8_t>(constrain(static_cast<int>(red * 255.0f), 0, 255));
