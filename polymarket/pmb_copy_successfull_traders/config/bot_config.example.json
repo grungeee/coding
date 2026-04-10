@@ -1,0 +1,20 @@
+{
+  "traders": [
+    "0x0000000000000000000000000000000000000000"
+  ],
+  "copy_bet_usd": 1,
+  "poll_interval_seconds": 30,
+  "risk_limits": {
+    "max_open_positions": 5,
+    "max_daily_positions": 20,
+    "max_daily_notional_usd": 50
+  },
+  "state_path": "data/state.json",
+  "leaderboard": {
+    "enabled": false,
+    "min_pnl": 0,
+    "min_vol": 0,
+    "max_traders": 10,
+    "refresh_seconds": 3600
+  }
+}

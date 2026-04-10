@@ -1,0 +1,6 @@
+.DS_Store
+.env
+
+# Local bot state and credentials
+data/state.json
+credentials/*

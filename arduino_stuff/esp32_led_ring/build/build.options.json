@@ -1,9 +1,0 @@
-{
-  "additionalFiles": "",
-  "compiler.optimization_flags": "-Os",
-  "customBuildProperties": "",
-  "fqbn": "esp32:esp32:esp32",
-  "hardwareFolders": "/home/grungeee/.arduino15/packages",
-  "otherLibrariesFolders": "/home/grungeee/Arduino/libraries",
-  "sketchLocation": "/home/grungeee/Documents/coding/arduino_stuff/esp32_led_ring"
-}

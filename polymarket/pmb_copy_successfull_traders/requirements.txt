@@ -1,0 +1,2 @@
+requests>=2.31.0
+git+https://github.com/Polymarket/py-clob-client.git

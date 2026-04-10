@@ -1,3 +1,50 @@
+### Local OS/editor files
+.DS_Store
+**/.DS_Store
+
+### Local environments, caches, and generated Python files
+**/.venv/
+**/venv/
+**/env/
+**/testing_venv/
+arduino_stuff/esp32_homeassistant/i2c_scan/esptool/
+python_stuff/my_projects/chess_game/bin/
+python_stuff/my_projects/chess_game/lib/
+python_stuff/my_projects/chess_game/lib64
+python_stuff/my_projects/chess_game/pyvenv.cfg
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+
+### Build output and compiled artifacts
+**/build/
+*.o
+*.d
+*.bin
+*.elf
+*.map
+
+### Local secrets, credentials, and runtime state
+**/.env
+**/.env.*
+!**/.env.example
+**/credentials/*
+!**/credentials/.gitkeep
+**/.token-*
+**/*tokens.json
+**/bot_state.sqlite3
+**/*.sqlite3
+**/*.db
+**/*.log
+**/data/state.json
+**/config/bot_config.json
+**/clob.copy
+
+### Local recovery copies
+coding-local-*/
+polymarket/**/automation/py-clob-client/examples/
+polymarket/**/automation/py-clob-client/tests/
+
 js_stuff/codex_visa_application/
 vibe/spotifuckoff/
 github_stuff/grungeee/
