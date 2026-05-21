@@ -1,0 +1,50 @@
+Filetype: IR signals file
+Version: 1
+#
+name: 00_On_Off
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 00 00 00 00
+#
+name: 01_Start
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 01 00 00 00
+#
+name: 02_Speed_Up
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 03_Time_Up
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 03 00 00 00
+#
+name: 04_Time_Down
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 04 00 00 00
+#
+name: 05_Speed_Down
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 06_Manual
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 06 00 00 00
+#
+name: 07_Programs
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 07 00 00 00

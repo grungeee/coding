@@ -1,0 +1,242 @@
+Filetype: IR signals file
+Version: 1
+#
+name: 01_Turn_On
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 00 00 00 00
+#
+name: 02_Time_Down_01
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 03_Time_Down_02
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 04_Time_Down_03
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 05_Time_Down_04
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 06_Time_Down_05
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 07_Time_Down_06
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 08_Time_Down_07
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 09_Time_Down_08
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 10_Time_Down_09
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 05 00 00 00
+#
+name: 11_Play
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 01 00 00 00
+#
+name: 12_Speed_Up_01
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 13_Speed_Up_02
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 14_Speed_Up_03
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 15_Speed_Up_04
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 16_Speed_Up_05
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 17_Speed_Up_06
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 18_Speed_Up_07
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 19_Speed_Up_08
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 20_Speed_Up_09
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 21_Speed_Up_10
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 22_Speed_Up_11
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 23_Speed_Up_12
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 24_Speed_Up_13
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 25_Speed_Up_14
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 26_Speed_Up_15
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 27_Speed_Up_16
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 28_Speed_Up_17
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 29_Speed_Up_18
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 30_Speed_Up_19
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 31_Speed_Up_20
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 32_Speed_Up_21
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 33_Speed_Up_22
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 34_Speed_Up_23
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 35_Speed_Up_24
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 36_Speed_Up_25
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 37_Speed_Up_26
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 38_Speed_Up_27
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 39_Speed_Up_28
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
+#
+name: 40_Speed_Up_29
+type: parsed
+protocol: NEC
+address: 01 00 00 00
+command: 02 00 00 00
