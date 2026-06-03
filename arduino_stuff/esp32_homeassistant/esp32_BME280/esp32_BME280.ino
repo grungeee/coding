@@ -10,13 +10,13 @@
 
 
 
-//const char* ssid = "pls-connect-O3O";
-//const char* password = "jesdod-qirZoj-mysxe5";
-//const char* mqtt_server = "10.0.0.198";
+//const char* ssid = "YOUR_WIFI_SSID";
+//const char* password = "YOUR_WIFI_PASSWORD";
+//const char* mqtt_server = "YOUR_MQTT_SERVER_IP";
 
-const char* ssid = "hello ( ͡° ͜ʖ ͡°)";
-const char* password = "HustleCastel";
-const char* mqtt_server = "10.0.0.198";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* mqtt_server = "YOUR_MQTT_SERVER_IP";
 
 const int LED_PIN_BUILTIN = 8; // Default LED pin 2 on ESP32; 8 on ESP32c3
 
@@ -118,9 +118,10 @@ Adafruit_BME280 bme;
 #define BME280_ADDRESS 0x76 //or 0x77
 
 
-const char* ssid = "hello ( ͡° ͜ʖ ͡°)";
-const char* password = "HustleCastel";
-const char* mqtt_server = "192.168.31.115";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+// const char* mqtt_server = "YOUR_MQTT_SERVER_IP";
+const char* mqtt_server = "YOUR_MQTT_SERVER_IP";
 
 const int LED_PIN_BUILTIN = 2; // Default LED pin 2 on ESP32; 8 on ESP32c3
 //const int TWO_CORLOR_LED = 7; // esp32c3
@@ -245,5 +246,4 @@ void loop() {
   }
 }
 // end loop
-
 

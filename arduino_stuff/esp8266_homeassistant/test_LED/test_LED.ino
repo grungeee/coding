@@ -11,9 +11,9 @@
 Adafruit_BME280 bme;
 #define BME280_ADDRESS 0x76 //or 0x77
 // =============== CREDENTIALS ===============
-const char* ssid = "pls-connect-O3O";
-const char* password = "jesdod-qirZoj-mysxe5";
-const char* mqtt_server = "10.0.0.198";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* mqtt_server = "YOUR_MQTT_SERVER_IP";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
