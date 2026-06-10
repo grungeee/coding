@@ -24,9 +24,9 @@
     switch3 high -> GPIO14, GPIO15 high
 
   PWM outputs:
-    pot1 -> GPIO16, GPIO17
-    pot2 -> GPIO18, GPIO21
-    pot3 -> GPIO38, GPIO39
+    board1/switch1 -> PWM1 GPIO16, PWM2 GPIO17
+    board2/switch2 -> PWM3 GPIO18, PWM4 GPIO21
+    board3/switch3 -> PWM5 GPIO38, PWM6 GPIO39
 
   Serial output at 115200 baud prints ADC values and converted output voltages.
 
@@ -54,6 +54,11 @@ const int switchDigitalOutPins[3][2] = {
   {14, 15}
 };
 const int pwmPins[6] = {16, 17, 18, 21, 38, 39};
+const uint8_t boardPwmIndexes[3][2] = {
+  {0, 1},
+  {2, 3},
+  {4, 5}
+};
 const int switchInputPins[3] = {40, 41, 42};
 
 const int pwmFreq = 15000;
@@ -71,6 +76,7 @@ const unsigned long startupRampMs = 5000;
 const unsigned long movementSampleMs = 50;
 const unsigned long movementHoldMs = 500;
 const int movementThreshold = 16;
+const uint8_t telemetryHeaderEvery = 20;
 const size_t commandMaxLength = 64;
 const uint8_t espNowChannel = 1;
 const uint32_t packetMagic = 0x50325057;
@@ -94,7 +100,6 @@ struct EspNowPacket {
   uint8_t command;
   uint8_t variable;
   uint16_t commandValue;
-  uint16_t potRaw[3];
   uint16_t potValue[3];
   uint16_t pwmDuty[3];
   uint16_t switchDuty;
@@ -115,6 +120,7 @@ String usbCommandLine;
 EspNowPacket pendingCommandPacket;
 volatile bool havePendingCommandPacket = false;
 portMUX_TYPE pendingCommandMux = portMUX_INITIALIZER_UNLOCKED;
+bool pwmAttachOk[6] = {false, false, false, false, false, false};
 
 struct AdcOverride {
   bool enabled = false;
@@ -197,6 +203,58 @@ uint16_t clampAdc(long value) {
 
 const char* sourceName(bool overridden) {
   return overridden ? "MAN" : "AUTO";
+}
+
+float dutyPercent(uint16_t duty) {
+  return (duty * 100.0f) / adcMax;
+}
+
+void printTelemetryHeader(Print& out) {
+  out.println();
+  out.println(F("SEQ   MS       BOARD  SW   PWM   GPIO  POT   SRC   DUTY  DUTY%  AVG_V  LEDC"));
+  out.println(F("----  -------  -----  ---  ----  ----  ----  ----  ----  -----  -----  ----"));
+}
+
+void printPwmTelemetryRow(Print& out,
+                          uint8_t boardNumber,
+                          bool switchRaw,
+                          uint8_t pwmIndex,
+                          uint8_t gpio,
+                          uint16_t used,
+                          bool overridden,
+                          uint16_t duty,
+                          bool attached) {
+  out.printf("%4u  %7lu  B%-4u  %-3s  PWM%-1u  %4u  %4u  %-4s  %4u  %5.1f  %5.2f  %s\n",
+             sequence,
+             millis(),
+             boardNumber,
+             switchRaw ? "ON" : "OFF",
+             pwmIndex + 1,
+             gpio,
+             used,
+             sourceName(overridden),
+             duty,
+             dutyPercent(duty),
+             outputVoltage(duty),
+             attached ? "OK" : "FAIL");
+}
+
+void printSwitchTelemetryRow(Print& out,
+                             uint16_t switchDuty,
+                             bool switchRaw,
+                             bool switchOn,
+                             bool overridden,
+                             bool pwm23Changing) {
+  out.printf("%4u  %7lu  ALL    %-3s  SW    ----  ----  %-4s  %4u  %5.1f  %5.2f  P23_%s\n",
+             sequence,
+             millis(),
+             switchRaw ? "ON" : "OFF",
+             switchOn ? "ON" : "OFF",
+             sourceName(overridden),
+             switchDuty,
+             dutyPercent(switchDuty),
+             outputVoltage(switchDuty),
+             pwm23Changing ? "MOVING" : "STABLE");
 }
 
 uint8_t flagsForState(bool switchRaw, bool switchOn, bool pwm23Changing) {
@@ -514,10 +572,7 @@ void setupEspNow() {
   Serial.println(WiFi.macAddress());
 }
 
-void sendTelemetryPacket(uint16_t pot1Raw,
-                         uint16_t pot2Raw,
-                         uint16_t pot3Raw,
-                         uint16_t pot1,
+void sendTelemetryPacket(uint16_t pot1,
                          uint16_t pot2,
                          uint16_t pot3,
                          uint16_t pwm1,
@@ -532,9 +587,6 @@ void sendTelemetryPacket(uint16_t pot1Raw,
   packet.version = packetVersion;
   packet.kind = packetKindTelemetry;
   packet.seq = sequence;
-  packet.potRaw[0] = pot1Raw;
-  packet.potRaw[1] = pot2Raw;
-  packet.potRaw[2] = pot3Raw;
   packet.potValue[0] = pot1;
   packet.potValue[1] = pot2;
   packet.potValue[2] = pot3;
@@ -547,9 +599,6 @@ void sendTelemetryPacket(uint16_t pot1Raw,
 }
 
 void printTelemetry(Print& out,
-                    uint16_t pot1Raw,
-                    uint16_t pot2Raw,
-                    uint16_t pot3Raw,
                     uint16_t pot1,
                     uint16_t pot2,
                     uint16_t pot3,
@@ -557,51 +606,33 @@ void printTelemetry(Print& out,
                     uint16_t pwm2,
                     uint16_t pwm3,
                     uint16_t switchDuty,
+                    const bool switchRawValues[3],
                     bool switchRaw,
                     bool switchOn,
                     bool pwm23Changing) {
-  out.print("seq=");
-  out.print(sequence);
-  out.print(" pot1_raw=");
-  out.print(pot1Raw);
-  out.print(" pot1=");
-  out.print(pot1);
-  out.print(" pot1_src=");
-  out.print(sourceName(potOverrides[0].enabled));
-  out.print(" pwm1=");
-  out.print(pwm1);
-  out.print(" pwm1_out=");
-  out.print(outputVoltage(pwm1), 2);
-  out.print("V pot2_raw=");
-  out.print(pot2Raw);
-  out.print(" pot2=");
-  out.print(pot2);
-  out.print(" pot2_src=");
-  out.print(sourceName(potOverrides[1].enabled));
-  out.print(" pwm2=");
-  out.print(pwm2);
-  out.print(" pwm2_out=");
-  out.print(outputVoltage(pwm2), 2);
-  out.print("V pot3_raw=");
-  out.print(pot3Raw);
-  out.print(" pot3=");
-  out.print(pot3);
-  out.print(" pot3_src=");
-  out.print(sourceName(potOverrides[2].enabled));
-  out.print(" pwm3=");
-  out.print(pwm3);
-  out.print(" pwm3_out=");
-  out.print(outputVoltage(pwm3), 2);
-  out.print("V switch_raw=");
-  out.print(switchRaw ? "ON" : "OFF");
-  out.print(" switch=");
-  out.print(switchOn ? "ON" : "OFF");
-  out.print(" switch_src=");
-  out.print(sourceName(switchOverride.enabled));
-  out.print(" switch_out=");
-  out.print(outputVoltage(switchDuty), 2);
-  out.print("V pwm23_changing=");
-  out.println(pwm23Changing ? "YES" : "NO");
+  if (sequence % telemetryHeaderEvery == 0) {
+    printTelemetryHeader(out);
+  }
+
+  const uint16_t usedValues[3] = {pot1, pot2, pot3};
+  const uint16_t dutyValues[3] = {pwm1, pwm2, pwm3};
+
+  for (int board = 0; board < 3; board++) {
+    for (int output = 0; output < 2; output++) {
+      uint8_t pwmIndex = boardPwmIndexes[board][output];
+      printPwmTelemetryRow(out,
+                           board + 1,
+                           switchRawValues[board],
+                           pwmIndex,
+                           pwmPins[pwmIndex],
+                           usedValues[board],
+                           potOverrides[board].enabled,
+                           dutyValues[board],
+                           pwmAttachOk[pwmIndex]);
+    }
+  }
+
+  printSwitchTelemetryRow(out, switchDuty, switchRaw, switchOn, switchOverride.enabled, pwm23Changing);
 }
 
 void setup() {
@@ -611,8 +642,14 @@ void setup() {
   Serial.println("BOOT: Standalone ESP32-S3 pot-to-PWM alternate pinout");
   setupEspNow();
 
+  Serial.println("BOOT: attaching PWM pins");
   for (int i = 0; i < 6; i++) {
-    ledcAttach(pwmPins[i], pwmFreq, pwmResolution);
+    pinMode(pwmPins[i], OUTPUT);
+    pwmAttachOk[i] = ledcAttach(pwmPins[i], pwmFreq, pwmResolution);
+    Serial.print("  PWM pin GPIO");
+    Serial.print(pwmPins[i]);
+    Serial.print(" -> ");
+    Serial.println(pwmAttachOk[i] ? "OK" : "FAIL");
     pinMode(digitalOutPins[i], OUTPUT);
     digitalWrite(digitalOutPins[i], LOW);
     ledcWrite(pwmPins[i], 0);
@@ -630,9 +667,9 @@ void loop() {
   readCommands(Serial, usbCommandLine, Serial);
   processEspNowCommand();
 
-  uint16_t pot1Raw = analogRead(potPins[0]);
-  uint16_t pot2Raw = analogRead(potPins[1]);
-  uint16_t pot3Raw = analogRead(potPins[2]);
+  uint16_t pot1Input = analogRead(potPins[0]);
+  uint16_t pot2Input = analogRead(potPins[1]);
+  uint16_t pot3Input = analogRead(potPins[2]);
   bool switchRawValues[3] = {false, false, false};
   bool switchRaw = false;
 
@@ -643,9 +680,9 @@ void loop() {
       switchRaw = true;
     }
   }
-  uint16_t pot1 = potOverrides[0].enabled ? potOverrides[0].value : pot1Raw;
-  uint16_t pot2 = potOverrides[1].enabled ? potOverrides[1].value : pot2Raw;
-  uint16_t pot3 = potOverrides[2].enabled ? potOverrides[2].value : pot3Raw;
+  uint16_t pot1 = potOverrides[0].enabled ? potOverrides[0].value : pot1Input;
+  uint16_t pot2 = potOverrides[1].enabled ? potOverrides[1].value : pot2Input;
+  uint16_t pot3 = potOverrides[2].enabled ? potOverrides[2].value : pot3Input;
   bool switchOn = switchOverride.enabled ? switchOverride.value : switchRaw;
 
   if (!haveLastPots) {
@@ -684,8 +721,8 @@ void loop() {
   if (nowMs - lastReportMs >= reportIntervalMs) {
     lastReportMs = nowMs;
 
-    printTelemetry(Serial, pot1Raw, pot2Raw, pot3Raw, pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRaw, switchOn, pwm23Changing);
-    sendTelemetryPacket(pot1Raw, pot2Raw, pot3Raw, pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRaw, switchOn, pwm23Changing);
+    printTelemetry(Serial, pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRawValues, switchRaw, switchOn, pwm23Changing);
+    sendTelemetryPacket(pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRaw, switchOn, pwm23Changing);
     sequence++;
   }
 }
