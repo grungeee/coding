@@ -4,7 +4,7 @@
   Local analog inputs:
     pot1 -> GPIO34
     pot2 -> GPIO35
-    pot3 -> GPIO36
+    pot3 -> SVP / GPIO36
     Pots use ADC1 pins so they keep working while WiFi/ESP-NOW is active.
 
   I2C:
