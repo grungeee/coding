@@ -1,86 +1,169 @@
 /*
   Standalone ESP32 38-pin potentiometer to PWM converter.
 
-  Local analog inputs:
-    pot1 -> GPIO34
-    pot2 -> GPIO35
-    pot3 -> SVP / GPIO36
+  Local analog inputs (index = board slot):
+    board1/POT1 -> GPIO36
+    board2/POT2 -> GPIO35
+    board3/POT3 -> GPIO34
     Pots use ADC1 pins so they keep working while WiFi/ESP-NOW is active.
 
   I2C:
     Not assigned in this 38-pin core-functionality pinout.
 
-  Switch inputs:
-    switch1 -> GPIO32
-    switch2 -> GPIO33
-    switch3 -> GPIO4
+  Switch inputs (wired outside the IDC connector; SW1/SW2 are crossed on the harness):
+    switch1 in -> GPIO21
+    switch2 in -> GPIO4
+    switch3 in -> GPIO15
     Switch input is ON when connected to 3.3 V.
     INPUT_PULLDOWN is used, so LOW=released/off and HIGH=pressed/on.
+    All three have an internal pull-down, so no external resistor is needed.
 
-  Digital outputs:
-    switch1 high -> GPIO13, GPIO14 high
-    switch2 high -> GPIO16, GPIO17 high
-    switch3 high -> GPIO18, GPIO19 high
+  IDC connector: 12 pins, 6 PWM + 6 digital outputs, split into 3 four-pin blocks.
+  ESP32 right-header pins land on the odd IDC positions and left-header pins on the
+  even positions, so the even row is the one that crosses over the soldered odd row.
+  GPIO12 and GPIO14 are not used anywhere.
 
-  PWM outputs:
-    board1/switch1 -> PWM1 GPIO21, PWM2 GPIO22
-    board2/switch2 -> PWM3 GPIO23, PWM4 GPIO25
-    board3/switch3 -> PWM5 GPIO26, PWM6 GPIO27
+  Digital outputs (binary, one pair per board):
+    board1/switch1 -> DO1a GPIO22 (IDC 3),  DO1b GPIO33 (IDC 4)
+    board2/switch2 -> DO2a GPIO18 (IDC 7),  DO2b GPIO26 (IDC 8)
+    board3/switch3 -> DO3a GPIO16 (IDC 11), DO3b GPIO13 (IDC 12)
+
+  PWM outputs (one pair per board):
+    board1/switch1 -> PWM1 GPIO23 (IDC 1), PWM2 GPIO32 (IDC 2)
+    board2/switch2 -> PWM3 GPIO19 (IDC 5), PWM4 GPIO25 (IDC 6)
+    board3/switch3 -> PWM5 GPIO17 (IDC 9), PWM6 GPIO27 (IDC 10)
 
   Serial output at 115200 baud prints ADC values and converted output voltages.
 
-  Optional Cardputer controller UI link uses ESP-NOW broadcast.
+  Control paths (either one can drive the board):
+    1. USB serial commands (115200), newline terminated:
+         SET pot1|pot2|pot3 0..4095      force a pot input
+         SET switch 0|1|on|off           force the switch state
+         CLR pot1|pot2|pot3|switch|all   release pot/switch overrides
+         PWM <1..6> <0..4095>            force one PWM channel
+         PWM <1..6> off                  release one PWM channel
+         DO <1..6> <0|1>                 force one digital output
+         DO <1..6> off                   release one digital output
+         PARAM                           list all parameters
+         PARAM <name>                    show one parameter
+         PARAM <name> <value>            set one parameter
+         SAVE | LOAD | DEFAULTS          persist / restore / reset parameters
+         RELEASE                         release every override and force
+         STATUS                          report a summary
+    2. ESP-NOW broadcast on channel 1 (the M5Stack Cardputer UI, or any sender
+       that speaks the packet below). The Cardputer can do everything the serial
+       port can, including per-signal force and parameter tuning.
 
-  Runtime override commands, newline terminated:
-    SET pot1 0..4095
-    SET pot2 0..4095
-    SET pot3 0..4095
-    SET switch 0|1
-    CLR pot1|pot2|pot3|switch|all
+  ESP-NOW packet (must stay byte-identical to m5stack_cardputer_pot2pwm_ui.ino):
+    magic 0x50325057, version 2, sizeof == 150 bytes.
+    kind 1 = telemetry (controller -> UI), kind 2 = command (UI -> controller).
 */
 
 #include <WiFi.h>
 #include <esp_now.h>
+#include <Preferences.h>
 
-const int potPins[3] = {34, 35, 36};
-const int digitalOutPins[6] = {13, 14, 16, 17, 18, 19};
+/* The harness connectors are indexed by BOARD SLOT below (slot N = board N = physical
+   POTN / SWN). Measured on the board:
+     pots:  POT1 = GPIO36, POT2 = GPIO35, POT3 = GPIO34   (pot order IS reversed on the harness)
+     switches: SW1 = GPIO21, SW2 = GPIO4, SW3 = GPIO15    (SW1/SW2 are crossed)
+   The PWM and digital-output arrays follow the IDC connector order and are untouched. */
+const int potPins[3] = {36, 35, 34};
+const int digitalOutPins[6] = {22, 33, 18, 26, 16, 13};
 const int switchDigitalOutPins[3][2] = {
-  {13, 14},
-  {16, 17},
-  {18, 19}
+  {22, 33},
+  {18, 26},
+  {16, 13}
 };
-const int pwmPins[6] = {21, 22, 23, 25, 26, 27};
+const int pwmPins[6] = {23, 32, 19, 25, 17, 27};
 const uint8_t boardPwmIndexes[3][2] = {
   {0, 1},
   {2, 3},
   {4, 5}
 };
-const int switchInputPins[3] = {32, 33, 4};
+const int switchInputPins[3] = {21, 4, 15};
 
-const int pwmFreq = 15000;
-const int pwmResolution = 12;
+/* ---------------------------------------------------------------- parameters */
+
+enum ParamId : uint8_t {
+  PARAM_PWM_FREQ = 0,
+  PARAM_PWM_RES,
+  PARAM_POT_LOW_IN,
+  PARAM_POT_LOW_DUTY,
+  PARAM_POT_HIGH_IN,
+  PARAM_POT_HIGH_DUTY,
+  PARAM_MAX_B1,
+  PARAM_MAX_B2,
+  PARAM_MAX_B3,
+  PARAM_RAMP_MS,
+  PARAM_REPORT_MS,
+  PARAM_MOVE_THRESH,
+  PARAM_MOVE_HOLD_MS,
+  PARAM_SWITCH_MAX,
+  PARAM_INVERT_POT1,
+  PARAM_INVERT_POT2,
+  PARAM_INVERT_POT3,
+  PARAM_POT_FLIP,
+  PARAM_COUNT
+};
+
+struct ParamSpec {
+  const char* name;
+  uint16_t minValue;
+  uint16_t maxValue;
+  uint16_t step;
+  uint16_t defaultValue;
+};
+
+const ParamSpec paramSpecs[PARAM_COUNT] = {
+  {"freq",     100, 40000, 500, 15000},
+  {"res",        8,    14,   1,    12},
+  {"lowin",      0,  4095,  32,   100},
+  {"lowduty",    0,  4095,  32,   559},
+  {"highin",     0,  4095,  32,  4095},
+  {"highduty",   0,  4095,  32,  2047},
+  {"maxb1",      0,  4095,  64,  2047},
+  {"maxb2",      0,  4095,  64,  2047},
+  {"maxb3",      0,  4095,  64,  2047},
+  {"rampms",     0, 60000, 250,  5000},
+  {"reportms",  20,  2000,  10,   100},
+  {"movethr",    0,  1000,   4,    16},
+  {"movehold",   0,  5000,  50,   500},
+  {"swmax",      0,  4095,  64,  4095},
+  {"inv1",       0,     1,   1,     0},
+  {"inv2",       0,     1,   1,     0},
+  {"inv3",       0,     1,   1,     0},
+  {"potflip",    0,     1,   1,     0},
+};
+
+uint16_t paramValues[PARAM_COUNT];
+bool paramsFromNvs = false;
+
 const int adcMax = 4095;
-const int pwm1Max = (adcMax * 50) / 100;
-const int pwm23Max = (adcMax * 50) / 100;
 const float fullScaleVoltage = 3.3f;
-const uint16_t potLowInput = 100;
-const uint16_t potLowDuty = 559;
-const uint16_t potHighInput = adcMax;
-const uint16_t potHighDuty = adcMax / 2;
-const unsigned long reportIntervalMs = 100;
-const unsigned long startupRampMs = 5000;
 const unsigned long movementSampleMs = 50;
-const unsigned long movementHoldMs = 500;
-const int movementThreshold = 16;
 const uint8_t telemetryHeaderEvery = 20;
 const size_t commandMaxLength = 64;
+const uint32_t paramBlobMagic = 0x50325032UL;
+
+/* ------------------------------------------------------------------ protocol */
+
 const uint8_t espNowChannel = 1;
 const uint32_t packetMagic = 0x50325057;
-const uint8_t packetVersion = 1;
+const uint8_t packetVersion = 2;
 const uint8_t packetKindTelemetry = 1;
 const uint8_t packetKindCommand = 2;
 const uint8_t commandSet = 1;
 const uint8_t commandClear = 2;
+const uint8_t commandForcePwm = 3;
+const uint8_t commandForceDo = 4;
+const uint8_t commandReleasePwm = 5;
+const uint8_t commandReleaseDo = 6;
+const uint8_t commandSetParam = 7;
+const uint8_t commandSaveParams = 8;
+const uint8_t commandLoadParams = 9;
+const uint8_t commandResetParams = 10;
+const uint8_t commandReleaseAll = 11;
 const uint8_t variablePot1 = 1;
 const uint8_t variablePot2 = 2;
 const uint8_t variablePot3 = 3;
@@ -97,10 +180,28 @@ struct EspNowPacket {
   uint8_t variable;
   uint16_t commandValue;
   uint16_t potValue[3];
-  uint16_t pwmDuty[3];
+  uint16_t pwmDuty[6];
   uint16_t switchDuty;
   uint8_t flags;
+  uint8_t pwmForceMask;
+  uint8_t doForceMask;
+  uint8_t doStateMask;
+  uint8_t switchRawMask;
+  uint16_t params[PARAM_COUNT];
+  uint16_t paramMin[PARAM_COUNT];
+  uint16_t paramMax[PARAM_COUNT];
+  uint16_t paramStep[PARAM_COUNT];
+  uint8_t paramCount;
 } __attribute__((packed));
+
+static_assert(sizeof(EspNowPacket) == 182, "ESP-NOW packet must match m5stack_cardputer_pot2pwm_ui.ino");
+
+struct ParamBlob {
+  uint32_t magic;
+  uint16_t values[PARAM_COUNT];
+};
+
+/* ------------------------------------------------------------------- runtime */
 
 unsigned long lastReportMs = 0;
 unsigned long startupMs = 0;
@@ -112,11 +213,13 @@ uint16_t lastPot2 = 0;
 uint16_t lastPot3 = 0;
 bool haveLastPots = false;
 bool lastSwitchOn = false;
+uint32_t dutyFullScale = 4095;
 String usbCommandLine;
 EspNowPacket pendingCommandPacket;
 volatile bool havePendingCommandPacket = false;
 portMUX_TYPE pendingCommandMux = portMUX_INITIALIZER_UNLOCKED;
 bool pwmAttachOk[6] = {false, false, false, false, false, false};
+Preferences preferences;
 
 struct AdcOverride {
   bool enabled = false;
@@ -128,61 +231,41 @@ struct BoolOverride {
   bool value = false;
 };
 
+struct PwmForce {
+  bool enabled = false;
+  uint16_t value = 0;
+};
+
+struct DoForce {
+  bool enabled = false;
+  bool value = false;
+};
+
 AdcOverride potOverrides[3];
 BoolOverride switchOverride;
+PwmForce pwmForce[6];
+DoForce doForce[6];
+
+/* ------------------------------------------------------------------- helpers */
 
 float outputVoltage(uint16_t value) {
   return (value * fullScaleVoltage) / adcMax;
 }
 
-uint16_t cappedDuty(uint16_t value, uint16_t maxValue) {
-  return value > maxValue ? maxValue : value;
+float dutyPercent(uint16_t duty) {
+  return (duty * 100.0f) / adcMax;
 }
 
-uint16_t sensitiveDuty(uint16_t value) {
-  if (value <= potLowInput) {
-    return ((uint32_t)value * potLowDuty + (potLowInput / 2)) / potLowInput;
-  }
-
-  uint32_t inputSpan = potHighInput - potLowInput;
-  uint32_t dutySpan = potHighDuty - potLowDuty;
-  uint32_t scaled = potLowDuty + (((uint32_t)(value - potLowInput) * dutySpan + (inputSpan / 2)) / inputSpan);
-  return scaled > adcMax ? adcMax : (uint16_t)scaled;
+const char* sourceName(bool overridden) {
+  return overridden ? "MAN" : "AUTO";
 }
 
-uint16_t startupRampedDuty(uint16_t value, unsigned long nowMs) {
-  unsigned long elapsedMs = nowMs - startupMs;
-
-  if (elapsedMs >= startupRampMs) {
-    return value;
+const char* channelSourceName(uint8_t index) {
+  if (pwmForce[index].enabled) {
+    return "FORCE";
   }
 
-  uint32_t rampMax = ((uint32_t)adcMax * elapsedMs) / startupRampMs;
-  return value > rampMax ? rampMax : value;
-}
-
-uint16_t switchRampedDuty(bool switchOn, unsigned long nowMs) {
-  if (!switchOn) {
-    lastSwitchOn = false;
-    return 0;
-  }
-
-  if (!lastSwitchOn) {
-    switchRampStartMs = nowMs;
-    lastSwitchOn = true;
-  }
-
-  unsigned long elapsedMs = nowMs - switchRampStartMs;
-
-  if (elapsedMs >= startupRampMs) {
-    return adcMax;
-  }
-
-  return ((uint32_t)adcMax * elapsedMs) / startupRampMs;
-}
-
-bool changedEnough(uint16_t currentValue, uint16_t lastValue) {
-  return abs((int)currentValue - (int)lastValue) > movementThreshold;
+  return sourceName(potOverrides[index / 2].enabled);
 }
 
 uint16_t clampAdc(long value) {
@@ -197,61 +280,353 @@ uint16_t clampAdc(long value) {
   return (uint16_t)value;
 }
 
-const char* sourceName(bool overridden) {
-  return overridden ? "MAN" : "AUTO";
+uint16_t cappedDuty(uint16_t value, uint16_t maxValue) {
+  return value > maxValue ? maxValue : value;
 }
 
-float dutyPercent(uint16_t duty) {
-  return (duty * 100.0f) / adcMax;
+uint32_t scaleDuty(uint16_t duty) {
+  return ((uint32_t)duty * dutyFullScale + (adcMax / 2)) / adcMax;
 }
+
+uint16_t sensitiveDuty(uint16_t value) {
+  uint16_t lowIn = paramValues[PARAM_POT_LOW_IN];
+  uint16_t lowDuty = paramValues[PARAM_POT_LOW_DUTY];
+  uint16_t highIn = paramValues[PARAM_POT_HIGH_IN];
+  uint16_t highDuty = paramValues[PARAM_POT_HIGH_DUTY];
+
+  if (value <= lowIn) {
+    if (lowIn == 0) {
+      return 0;
+    }
+
+    return ((uint32_t)value * lowDuty + (lowIn / 2)) / lowIn;
+  }
+
+  if (highIn <= lowIn) {
+    return highDuty > adcMax ? adcMax : highDuty;
+  }
+
+  uint32_t inputSpan = highIn - lowIn;
+  uint32_t dutySpan = (highDuty > lowDuty) ? (uint32_t)(highDuty - lowDuty) : 0;
+  uint32_t scaled = lowDuty + (((uint32_t)(value - lowIn) * dutySpan + (inputSpan / 2)) / inputSpan);
+  return scaled > adcMax ? adcMax : (uint16_t)scaled;
+}
+
+uint16_t startupRampedDuty(uint16_t value, unsigned long nowMs) {
+  uint16_t rampMs = paramValues[PARAM_RAMP_MS];
+
+  if (rampMs == 0) {
+    return value;
+  }
+
+  unsigned long elapsedMs = nowMs - startupMs;
+
+  if (elapsedMs >= rampMs) {
+    return value;
+  }
+
+  uint32_t rampMax = ((uint32_t)adcMax * elapsedMs) / rampMs;
+  return value > rampMax ? rampMax : value;
+}
+
+uint16_t switchRampedDuty(bool switchOn, unsigned long nowMs) {
+  if (!switchOn) {
+    lastSwitchOn = false;
+    return 0;
+  }
+
+  if (!lastSwitchOn) {
+    switchRampStartMs = nowMs;
+    lastSwitchOn = true;
+  }
+
+  uint16_t rampMs = paramValues[PARAM_RAMP_MS];
+  uint16_t target = paramValues[PARAM_SWITCH_MAX];
+  unsigned long elapsedMs = nowMs - switchRampStartMs;
+
+  if (rampMs == 0 || elapsedMs >= rampMs) {
+    return target;
+  }
+
+  return ((uint32_t)target * elapsedMs) / rampMs;
+}
+
+bool changedEnough(uint16_t currentValue, uint16_t lastValue, uint16_t threshold) {
+  return abs((int)currentValue - (int)lastValue) > (int)threshold;
+}
+
+bool flagIsSet(uint8_t flags, uint8_t bit) {
+  return (flags & (1 << bit)) != 0;
+}
+
+/* ---------------------------------------------------------------- parameters */
+
+uint16_t clampParam(uint8_t paramId, long value) {
+  const ParamSpec& spec = paramSpecs[paramId];
+
+  if (value < (long)spec.minValue) {
+    return spec.minValue;
+  }
+
+  if (value > (long)spec.maxValue) {
+    return spec.maxValue;
+  }
+
+  return (uint16_t)value;
+}
+
+void loadDefaultParams() {
+  for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+    paramValues[i] = paramSpecs[i].defaultValue;
+  }
+
+  paramsFromNvs = false;
+}
+
+void applyParamsToHardware() {
+  uint32_t freq = paramValues[PARAM_PWM_FREQ];
+  uint8_t resolution = (uint8_t)paramValues[PARAM_PWM_RES];
+
+  if (resolution < 8) {
+    resolution = 8;
+  }
+
+  if (resolution > 14) {
+    resolution = 14;
+  }
+
+  dutyFullScale = (1UL << resolution) - 1;
+
+  for (int i = 0; i < 6; i++) {
+    if (!ledcChangeFrequency(pwmPins[i], freq, resolution)) {
+      pwmAttachOk[i] = ledcAttach(pwmPins[i], freq, resolution);
+    }
+  }
+}
+
+void saveParamsToNvs() {
+  ParamBlob blob = {};
+  blob.magic = paramBlobMagic;
+
+  for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+    blob.values[i] = paramValues[i];
+  }
+
+  preferences.begin("pot2pwm", false);
+  size_t written = preferences.putBytes("params", &blob, sizeof(blob));
+  preferences.end();
+  Serial.print("NVS: saved ");
+  Serial.print(written);
+  Serial.println(" bytes of parameters");
+}
+
+bool loadParamsFromNvs(bool verbose) {
+  preferences.begin("pot2pwm", true);
+  size_t length = preferences.getBytesLength("params");
+  ParamBlob blob = {};
+  bool ok = false;
+
+  if (length == sizeof(blob)) {
+    if (preferences.getBytes("params", &blob, sizeof(blob)) == sizeof(blob) && blob.magic == paramBlobMagic) {
+      for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+        paramValues[i] = clampParam(i, blob.values[i]);
+      }
+
+      paramsFromNvs = true;
+      ok = true;
+    }
+  }
+
+  preferences.end();
+
+  if (verbose) {
+    Serial.print("NVS: load ");
+    Serial.println(ok ? "ok" : "no saved parameters, using compiled defaults");
+  }
+
+  if (!ok) {
+    loadDefaultParams();
+  }
+
+  return ok;
+}
+
+/* ------------------------------------------------------------------ overrides */
+
+void applySet(uint8_t variable, uint16_t value) {
+  int potIndex = -1;
+
+  if (variable == variablePot1) {
+    potIndex = 0;
+  } else if (variable == variablePot2) {
+    potIndex = 1;
+  } else if (variable == variablePot3) {
+    potIndex = 2;
+  }
+
+  if (potIndex >= 0) {
+    potOverrides[potIndex].enabled = true;
+    potOverrides[potIndex].value = clampAdc(value);
+    return;
+  }
+
+  if (variable == variableSwitch) {
+    switchOverride.enabled = true;
+    switchOverride.value = value != 0;
+  }
+}
+
+void applyClear(uint8_t variable) {
+  if (variable == variableAll) {
+    for (int i = 0; i < 3; i++) {
+      potOverrides[i].enabled = false;
+    }
+
+    switchOverride.enabled = false;
+    return;
+  }
+
+  if (variable == variablePot1) {
+    potOverrides[0].enabled = false;
+  } else if (variable == variablePot2) {
+    potOverrides[1].enabled = false;
+  } else if (variable == variablePot3) {
+    potOverrides[2].enabled = false;
+  } else if (variable == variableSwitch) {
+    switchOverride.enabled = false;
+  }
+}
+
+void applyForcePwm(uint8_t channel, uint16_t value) {
+  if (channel >= 1 && channel <= 6) {
+    pwmForce[channel - 1].enabled = true;
+    pwmForce[channel - 1].value = clampAdc(value);
+  }
+}
+
+void applyForceDo(uint8_t channel, uint16_t value) {
+  if (channel >= 1 && channel <= 6) {
+    doForce[channel - 1].enabled = true;
+    doForce[channel - 1].value = value != 0;
+  }
+}
+
+void applyReleasePwm(uint8_t channel) {
+  if (channel == variableAll) {
+    for (int i = 0; i < 6; i++) {
+      pwmForce[i].enabled = false;
+    }
+
+    return;
+  }
+
+  if (channel >= 1 && channel <= 6) {
+    pwmForce[channel - 1].enabled = false;
+  }
+}
+
+void applyReleaseDo(uint8_t channel) {
+  if (channel == variableAll) {
+    for (int i = 0; i < 6; i++) {
+      doForce[i].enabled = false;
+    }
+
+    return;
+  }
+
+  if (channel >= 1 && channel <= 6) {
+    doForce[channel - 1].enabled = false;
+  }
+}
+
+void applyReleaseAll() {
+  applyClear(variableAll);
+  applyReleasePwm(variableAll);
+  applyReleaseDo(variableAll);
+}
+
+bool applySetParam(uint8_t paramId, uint16_t value) {
+  if (paramId >= PARAM_COUNT) {
+    return false;
+  }
+
+  uint16_t clamped = clampParam(paramId, value);
+  paramValues[paramId] = clamped;
+
+  if (paramId == PARAM_PWM_FREQ || paramId == PARAM_PWM_RES) {
+    applyParamsToHardware();
+  }
+
+  return true;
+}
+
+int paramIdForName(const String& name) {
+  for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+    if (name == paramSpecs[i].name) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+/* ------------------------------------------------------------------- printing */
 
 void printTelemetryHeader(Print& out) {
   out.println();
-  out.println(F("SEQ   MS       BOARD  SW   PWM   GPIO  POT   SRC   DUTY  DUTY%  AVG_V  LEDC"));
-  out.println(F("----  -------  -----  ---  ----  ----  ----  ----  ----  -----  -----  ----"));
+  out.println(F("SEQ   MS       BOARD  SW   CH    GPIO  DUTY  DUTY%  AVG_V  SRC    LEDC"));
+  out.println(F("----  -------  -----  ---  ----  ----  ----  -----  -----  -----  ----"));
 }
 
 void printPwmTelemetryRow(Print& out,
                           uint8_t boardNumber,
                           bool switchRaw,
-                          uint8_t pwmIndex,
+                          uint8_t channelIndex,
                           uint8_t gpio,
                           uint16_t used,
                           bool overridden,
                           uint16_t duty,
                           bool attached) {
-  out.printf("%4u  %7lu  B%-4u  %-3s  PWM%-1u  %4u  %4u  %-4s  %4u  %5.1f  %5.2f  %s\n",
+  out.printf("%4u  %7lu  B%-4u  %-3s  PWM%-1u  %4u  %4u  %5.1f  %5.2f  %-6s %s\n",
              sequence,
              millis(),
              boardNumber,
              switchRaw ? "ON" : "OFF",
-             pwmIndex + 1,
+             channelIndex + 1,
              gpio,
-             used,
-             sourceName(overridden),
              duty,
              dutyPercent(duty),
              outputVoltage(duty),
+             channelSourceName(channelIndex),
              attached ? "OK" : "FAIL");
 }
 
 void printSwitchTelemetryRow(Print& out,
                              uint16_t switchDuty,
+                             const uint16_t potValues[3],
+                             const bool switchRawValues[3],
                              bool switchRaw,
                              bool switchOn,
-                             bool overridden,
+                             uint8_t doStateMask,
                              bool pwm23Changing) {
-  out.printf("%4u  %7lu  ALL    %-3s  SW    ----  ----  %-4s  %4u  %5.1f  %5.2f  P23_%s\n",
+  (void)switchRaw;
+  out.printf("%4u  %7lu  ALL    SW %c%c%c  %-6s DO %02X  %4u  %5.2fV  P23_%-6s POT %4u %4u %4u\n",
              sequence,
              millis(),
-             switchRaw ? "ON" : "OFF",
-             switchOn ? "ON" : "OFF",
-             sourceName(overridden),
+             switchRawValues[0] ? '1' : '-',
+             switchRawValues[1] ? '1' : '-',
+             switchRawValues[2] ? '1' : '-',
+             switchOverride.enabled ? "MAN" : (switchOn ? "ON" : "OFF"),
+             doStateMask,
              switchDuty,
-             dutyPercent(switchDuty),
              outputVoltage(switchDuty),
-             pwm23Changing ? "MOVING" : "STABLE");
+             pwm23Changing ? "MOVING" : "STABLE",
+             potValues[0],
+             potValues[1],
+             potValues[2]);
 }
+
+/* --------------------------------------------------------------- ESP-NOW send */
 
 uint8_t flagsForState(bool switchRaw, bool switchOn, bool pwm23Changing) {
   uint8_t flags = 0;
@@ -284,8 +659,84 @@ uint8_t flagsForState(bool switchRaw, bool switchOn, bool pwm23Changing) {
     flags |= 1 << 6;
   }
 
+  for (int i = 0; i < 6; i++) {
+    if (pwmForce[i].enabled || doForce[i].enabled) {
+      flags |= 1 << 7;
+      break;
+    }
+  }
+
   return flags;
 }
+
+uint8_t maskForPwmForces() {
+  uint8_t mask = 0;
+
+  for (int i = 0; i < 6; i++) {
+    if (pwmForce[i].enabled) {
+      mask |= 1 << i;
+    }
+  }
+
+  return mask;
+}
+
+uint8_t maskForDoForces() {
+  uint8_t mask = 0;
+
+  for (int i = 0; i < 6; i++) {
+    if (doForce[i].enabled) {
+      mask |= 1 << i;
+    }
+  }
+
+  return mask;
+}
+
+void fillParamFields(EspNowPacket& packet) {
+  packet.paramCount = PARAM_COUNT;
+
+  for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+    packet.params[i] = paramValues[i];
+    packet.paramMin[i] = paramSpecs[i].minValue;
+    packet.paramMax[i] = paramSpecs[i].maxValue;
+    packet.paramStep[i] = paramSpecs[i].step;
+  }
+}
+
+void sendTelemetryPacket(const uint16_t potValues[3],
+                         const uint16_t channelDuty[6],
+                         uint16_t switchDuty,
+                         const bool switchRawValues[3],
+                         bool switchRaw,
+                         bool switchOn,
+                         uint8_t doStateMask,
+                         bool pwm23Changing) {
+  EspNowPacket packet = {};
+  packet.magic = packetMagic;
+  packet.version = packetVersion;
+  packet.kind = packetKindTelemetry;
+  packet.seq = sequence;
+
+  for (int i = 0; i < 3; i++) {
+    packet.potValue[i] = potValues[i];
+  }
+
+  for (int i = 0; i < 6; i++) {
+    packet.pwmDuty[i] = channelDuty[i];
+  }
+
+  packet.switchDuty = switchDuty;
+  packet.flags = flagsForState(switchRaw, switchOn, pwm23Changing);
+  packet.pwmForceMask = maskForPwmForces();
+  packet.doForceMask = maskForDoForces();
+  packet.doStateMask = doStateMask;
+  packet.switchRawMask = (switchRawValues[0] ? 1 : 0) | (switchRawValues[1] ? 2 : 0) | (switchRawValues[2] ? 4 : 0);
+  fillParamFields(packet);
+  esp_now_send(broadcastAddress, (const uint8_t*)&packet, sizeof(packet));
+}
+
+/* ------------------------------------------------------------ serial commands */
 
 int potIndexForName(const String& name) {
   if (name == "pot1") {
@@ -297,22 +748,6 @@ int potIndexForName(const String& name) {
   }
 
   if (name == "pot3") {
-    return 2;
-  }
-
-  return -1;
-}
-
-int potIndexForVariable(uint8_t variable) {
-  if (variable == variablePot1) {
-    return 0;
-  }
-
-  if (variable == variablePot2) {
-    return 1;
-  }
-
-  if (variable == variablePot3) {
     return 2;
   }
 
@@ -333,54 +768,50 @@ bool parseBoolValue(const String& valueText, bool& value) {
   return false;
 }
 
-void applySet(uint8_t variable, uint16_t value) {
-  int potIndex = potIndexForVariable(variable);
-
-  if (potIndex >= 0) {
-    potOverrides[potIndex].enabled = true;
-    potOverrides[potIndex].value = clampAdc(value);
-    return;
-  }
-
-  if (variable == variableSwitch) {
-    switchOverride.enabled = true;
-    switchOverride.value = value != 0;
-  }
-}
-
-void applyClear(uint8_t variable) {
-  if (variable == variableAll) {
-    for (int i = 0; i < 3; i++) {
-      potOverrides[i].enabled = false;
-    }
-
-    switchOverride.enabled = false;
-    return;
-  }
-
-  int potIndex = potIndexForVariable(variable);
-
-  if (potIndex >= 0) {
-    potOverrides[potIndex].enabled = false;
-    return;
-  }
-
-  if (variable == variableSwitch) {
-    switchOverride.enabled = false;
-  }
-}
-
 void reply(Print& out, const __FlashStringHelper* status, const String& detail) {
   out.print(status);
   out.print(' ');
   out.println(detail);
 }
 
+void printParamTable(Print& out) {
+  out.println(F("PARAM   VALUE   MIN     MAX     STEP    DEFAULT"));
+  out.println(F("------  ------  ------  ------  ------  -------"));
+
+  for (uint8_t i = 0; i < PARAM_COUNT; i++) {
+    char line[80];
+    snprintf(line, sizeof(line), "%-6s  %6u  %6u  %6u  %6u  %7u",
+             paramSpecs[i].name,
+             paramValues[i],
+             paramSpecs[i].minValue,
+             paramSpecs[i].maxValue,
+             paramSpecs[i].step,
+             paramSpecs[i].defaultValue);
+    out.println(line);
+  }
+}
+
+void printStatusSummary(Print& out) {
+  out.print(F("params: "));
+  out.println(paramsFromNvs ? F("loaded from NVS") : F("compiled defaults"));
+  out.print(F("pots: "));
+  for (int i = 0; i < 3; i++) {
+    out.print(potOverrides[i].enabled ? String(potOverrides[i].value) : String("auto"));
+    out.print(i < 2 ? " " : "\n");
+  }
+  out.print(F("switch: "));
+  out.println(switchOverride.enabled ? (switchOverride.value ? "MAN ON" : "MAN OFF") : "auto");
+  out.print(F("pwm forces: "));
+  out.println(maskForPwmForces(), HEX);
+  out.print(F("do forces: "));
+  out.println(maskForDoForces(), HEX);
+}
+
 void handleSetCommand(const String& variable, const String& valueText, Print& out) {
   int potIndex = potIndexForName(variable);
 
   if (potIndex >= 0) {
-    applySet(variablePot1 + potIndex, clampAdc(valueText.toInt()));
+    applySet((uint8_t)(variablePot1 + potIndex), clampAdc(valueText.toInt()));
     reply(out, F("OK"), variable + "=" + String(potOverrides[potIndex].value));
     return;
   }
@@ -403,15 +834,15 @@ void handleSetCommand(const String& variable, const String& valueText, Print& ou
 
 void handleClearCommand(const String& variable, Print& out) {
   if (variable == "all") {
-    applyClear(variableAll);
-    reply(out, F("OK"), F("all overrides cleared"));
+    applyReleaseAll();
+    reply(out, F("OK"), F("all overrides and forces cleared"));
     return;
   }
 
   int potIndex = potIndexForName(variable);
 
   if (potIndex >= 0) {
-    applyClear(variablePot1 + potIndex);
+    applyClear((uint8_t)(variablePot1 + potIndex));
     reply(out, F("OK"), variable + String(" auto"));
     return;
   }
@@ -423,6 +854,81 @@ void handleClearCommand(const String& variable, Print& out) {
   }
 
   reply(out, F("ERR"), F("unknown variable"));
+}
+
+void handleForcePwmCommand(const String& target, const String& valueText, Print& out) {
+  int channel = target.toInt();
+
+  if (channel < 1 || channel > 6) {
+    reply(out, F("ERR"), F("usage: PWM 1..6 value|off"));
+    return;
+  }
+
+  if (valueText == "off" || valueText == "auto") {
+    applyReleasePwm((uint8_t)channel);
+    reply(out, F("OK"), String("PWM") + channel + F(" released"));
+    return;
+  }
+
+  applyForcePwm((uint8_t)channel, clampAdc(valueText.toInt()));
+  reply(out, F("OK"), String("PWM") + channel + "=" + String(pwmForce[channel - 1].value));
+}
+
+void handleForceDoCommand(const String& target, const String& valueText, Print& out) {
+  int channel = target.toInt();
+
+  if (channel < 1 || channel > 6) {
+    reply(out, F("ERR"), F("usage: DO 1..6 0|1|off"));
+    return;
+  }
+
+  if (valueText == "off" || valueText == "auto") {
+    applyReleaseDo((uint8_t)channel);
+    reply(out, F("OK"), String("DO") + channel + F(" released"));
+    return;
+  }
+
+  bool parsedValue = false;
+
+  if (!parseBoolValue(valueText, parsedValue)) {
+    reply(out, F("ERR"), F("DO expects 0|1|on|off"));
+    return;
+  }
+
+  applyForceDo((uint8_t)channel, parsedValue ? 1 : 0);
+  reply(out, F("OK"), String("DO") + channel + (doForce[channel - 1].value ? F("=ON") : F("=OFF")));
+}
+
+void handleParamCommand(const String& rest, Print& out) {
+  if (rest.length() == 0) {
+    printParamTable(out);
+    return;
+  }
+
+  int secondSpace = rest.indexOf(' ');
+  String name = secondSpace < 0 ? rest : rest.substring(0, secondSpace);
+  String valueText = secondSpace < 0 ? "" : rest.substring(secondSpace + 1);
+  name.trim();
+  valueText.trim();
+  int paramId = paramIdForName(name);
+
+  if (paramId < 0) {
+    reply(out, F("ERR"), F("unknown parameter"));
+    return;
+  }
+
+  if (valueText.length() == 0) {
+    reply(out, F("OK"),
+          name + "=" + String(paramValues[paramId])
+               + " min " + String(paramSpecs[paramId].minValue)
+               + " max " + String(paramSpecs[paramId].maxValue)
+               + " step " + String(paramSpecs[paramId].step)
+               + " default " + String(paramSpecs[paramId].defaultValue));
+    return;
+  }
+
+  applySetParam((uint8_t)paramId, (uint16_t)valueText.toInt());
+  reply(out, F("OK"), name + "=" + String(paramValues[paramId]));
 }
 
 void handleCommand(String line, Print& out) {
@@ -465,8 +971,72 @@ void handleCommand(String line, Print& out) {
     return;
   }
 
+  if (command == "pwm") {
+    int secondSpace = rest.indexOf(' ');
+
+    if (secondSpace < 0) {
+      reply(out, F("ERR"), F("usage: PWM 1..6 value|off"));
+      return;
+    }
+
+    String target = rest.substring(0, secondSpace);
+    String valueText = rest.substring(secondSpace + 1);
+    target.trim();
+    valueText.trim();
+    handleForcePwmCommand(target, valueText, out);
+    return;
+  }
+
+  if (command == "do") {
+    int secondSpace = rest.indexOf(' ');
+
+    if (secondSpace < 0) {
+      reply(out, F("ERR"), F("usage: DO 1..6 0|1|off"));
+      return;
+    }
+
+    String target = rest.substring(0, secondSpace);
+    String valueText = rest.substring(secondSpace + 1);
+    target.trim();
+    valueText.trim();
+    handleForceDoCommand(target, valueText, out);
+    return;
+  }
+
+  if (command == "param") {
+    handleParamCommand(rest, out);
+    return;
+  }
+
+  if (command == "save") {
+    saveParamsToNvs();
+    reply(out, F("OK"), F("parameters saved"));
+    return;
+  }
+
+  if (command == "load") {
+    loadParamsFromNvs(true);
+    applyParamsToHardware();
+    reply(out, F("OK"), F("parameters loaded"));
+    return;
+  }
+
+  if (command == "defaults") {
+    loadDefaultParams();
+    applyParamsToHardware();
+    reply(out, F("OK"), F("parameters reset to compiled defaults"));
+    return;
+  }
+
+  if (command == "release") {
+    applyReleaseAll();
+    reply(out, F("OK"), F("everything released"));
+    return;
+  }
+
   if (command == "status") {
-    reply(out, F("OK"), F("status follows on next telemetry frame"));
+    printParamTable(out);
+    printStatusSummary(out);
     return;
   }
 
@@ -490,6 +1060,8 @@ void readCommands(Stream& stream, String& lineBuffer, Print& out) {
     }
   }
 }
+
+/* --------------------------------------------------------- ESP-NOW commands */
 
 void onEspNowReceive(const esp_now_recv_info_t* info, const uint8_t* data, int len) {
   (void)info;
@@ -523,16 +1095,81 @@ void processEspNowCommand() {
   havePendingCommandPacket = false;
   portEXIT_CRITICAL(&pendingCommandMux);
 
-  if (packet.command == commandSet) {
-    applySet(packet.variable, packet.commandValue);
-    Serial.print("ESP-NOW SET variable=");
-    Serial.print(packet.variable);
-    Serial.print(" value=");
-    Serial.println(packet.commandValue);
-  } else if (packet.command == commandClear) {
-    applyClear(packet.variable);
-    Serial.print("ESP-NOW CLR variable=");
-    Serial.println(packet.variable);
+  switch (packet.command) {
+    case commandSet:
+      applySet(packet.variable, packet.commandValue);
+      Serial.print(F("ESP-NOW SET variable="));
+      Serial.print(packet.variable);
+      Serial.print(F(" value="));
+      Serial.println(packet.commandValue);
+      break;
+
+    case commandClear:
+      applyClear(packet.variable);
+      Serial.print(F("ESP-NOW CLR variable="));
+      Serial.println(packet.variable);
+      break;
+
+    case commandForcePwm:
+      applyForcePwm(packet.variable, packet.commandValue);
+      Serial.print(F("ESP-NOW FORCE PWM"));
+      Serial.print(packet.variable);
+      Serial.print('=');
+      Serial.println(packet.commandValue);
+      break;
+
+    case commandForceDo:
+      applyForceDo(packet.variable, packet.commandValue);
+      Serial.print(F("ESP-NOW FORCE DO"));
+      Serial.print(packet.variable);
+      Serial.print('=');
+      Serial.println(packet.commandValue);
+      break;
+
+    case commandReleasePwm:
+      applyReleasePwm(packet.variable);
+      Serial.print(F("ESP-NOW RELEASE PWM "));
+      Serial.println(packet.variable);
+      break;
+
+    case commandReleaseDo:
+      applyReleaseDo(packet.variable);
+      Serial.print(F("ESP-NOW RELEASE DO "));
+      Serial.println(packet.variable);
+      break;
+
+    case commandSetParam:
+      if (applySetParam(packet.variable, packet.commandValue)) {
+        Serial.print(F("ESP-NOW PARAM "));
+        Serial.print(paramSpecs[packet.variable].name);
+        Serial.print('=');
+        Serial.println(paramValues[packet.variable]);
+      }
+      break;
+
+    case commandSaveParams:
+      saveParamsToNvs();
+      break;
+
+    case commandLoadParams:
+      loadParamsFromNvs(false);
+      applyParamsToHardware();
+      Serial.println(F("ESP-NOW params loaded from NVS"));
+      break;
+
+    case commandResetParams:
+      loadDefaultParams();
+      applyParamsToHardware();
+      Serial.println(F("ESP-NOW params reset to defaults"));
+      break;
+
+    case commandReleaseAll:
+      applyReleaseAll();
+      Serial.println(F("ESP-NOW release all"));
+      break;
+
+    default:
+      break;
   }
 }
 
@@ -541,7 +1178,7 @@ void setupEspNow() {
   WiFi.setChannel(espNowChannel);
 
   if (esp_now_init() != ESP_OK) {
-    Serial.println("ESP-NOW init failed");
+    Serial.println(F("ESP-NOW init failed"));
     return;
   }
 
@@ -556,100 +1193,74 @@ void setupEspNow() {
     esp_err_t result = esp_now_add_peer(&peerInfo);
 
     if (result != ESP_OK) {
-      Serial.print("ESP-NOW broadcast peer failed: ");
+      Serial.print(F("ESP-NOW broadcast peer failed: "));
       Serial.println(result);
       return;
     }
   }
 
-  Serial.print("ESP-NOW ready on channel ");
+  Serial.print(F("ESP-NOW ready on channel "));
   Serial.print(espNowChannel);
-  Serial.print(" MAC ");
+  Serial.print(F(" MAC "));
   Serial.println(WiFi.macAddress());
 }
 
-void sendTelemetryPacket(uint16_t pot1,
-                         uint16_t pot2,
-                         uint16_t pot3,
-                         uint16_t pwm1,
-                         uint16_t pwm2,
-                         uint16_t pwm3,
-                         uint16_t switchDuty,
-                         bool switchRaw,
-                         bool switchOn,
-                         bool pwm23Changing) {
-  EspNowPacket packet = {};
-  packet.magic = packetMagic;
-  packet.version = packetVersion;
-  packet.kind = packetKindTelemetry;
-  packet.seq = sequence;
-  packet.potValue[0] = pot1;
-  packet.potValue[1] = pot2;
-  packet.potValue[2] = pot3;
-  packet.pwmDuty[0] = pwm1;
-  packet.pwmDuty[1] = pwm2;
-  packet.pwmDuty[2] = pwm3;
-  packet.switchDuty = switchDuty;
-  packet.flags = flagsForState(switchRaw, switchOn, pwm23Changing);
-  esp_now_send(broadcastAddress, (const uint8_t*)&packet, sizeof(packet));
-}
+/* ---------------------------------------------------------------------- main */
 
 void printTelemetry(Print& out,
-                    uint16_t pot1,
-                    uint16_t pot2,
-                    uint16_t pot3,
-                    uint16_t pwm1,
-                    uint16_t pwm2,
-                    uint16_t pwm3,
+                    const uint16_t potValues[3],
+                    const uint16_t channelDuty[6],
                     uint16_t switchDuty,
                     const bool switchRawValues[3],
                     bool switchRaw,
                     bool switchOn,
+                    uint8_t doStateMask,
                     bool pwm23Changing) {
   if (sequence % telemetryHeaderEvery == 0) {
     printTelemetryHeader(out);
   }
 
-  const uint16_t usedValues[3] = {pot1, pot2, pot3};
-  const uint16_t dutyValues[3] = {pwm1, pwm2, pwm3};
-
   for (int board = 0; board < 3; board++) {
     for (int output = 0; output < 2; output++) {
-      uint8_t pwmIndex = boardPwmIndexes[board][output];
+      uint8_t channelIndex = boardPwmIndexes[board][output];
       printPwmTelemetryRow(out,
                            board + 1,
                            switchRawValues[board],
-                           pwmIndex,
-                           pwmPins[pwmIndex],
-                           usedValues[board],
-                           potOverrides[board].enabled,
-                           dutyValues[board],
-                           pwmAttachOk[pwmIndex]);
+                           channelIndex,
+                           pwmPins[channelIndex],
+                           potValues[board],
+                           potOverrides[board].enabled || pwmForce[channelIndex].enabled,
+                           channelDuty[channelIndex],
+                           pwmAttachOk[channelIndex]);
     }
   }
 
-  printSwitchTelemetryRow(out, switchDuty, switchRaw, switchOn, switchOverride.enabled, pwm23Changing);
+  printSwitchTelemetryRow(out, switchDuty, potValues, switchRawValues, switchRaw, switchOn, doStateMask, pwm23Changing);
 }
 
 void setup() {
   Serial.begin(115200);
   delay(1000);
   Serial.println();
-  Serial.println("BOOT: Standalone ESP32 38-pin pot-to-PWM");
+  Serial.println(F("BOOT: Standalone ESP32 38-pin pot-to-PWM (protocol v2)"));
+  loadDefaultParams();
+  loadParamsFromNvs(true);
   setupEspNow();
 
-  Serial.println("BOOT: attaching PWM pins");
+  Serial.println(F("BOOT: attaching PWM pins"));
   for (int i = 0; i < 6; i++) {
     pinMode(pwmPins[i], OUTPUT);
-    pwmAttachOk[i] = ledcAttach(pwmPins[i], pwmFreq, pwmResolution);
-    Serial.print("  PWM pin GPIO");
+    pwmAttachOk[i] = ledcAttach(pwmPins[i], paramValues[PARAM_PWM_FREQ], (uint8_t)paramValues[PARAM_PWM_RES]);
+    Serial.print(F("  PWM pin GPIO"));
     Serial.print(pwmPins[i]);
-    Serial.print(" -> ");
-    Serial.println(pwmAttachOk[i] ? "OK" : "FAIL");
+    Serial.print(F(" -> "));
+    Serial.println(pwmAttachOk[i] ? F("OK") : F("FAIL"));
     pinMode(digitalOutPins[i], OUTPUT);
     digitalWrite(digitalOutPins[i], LOW);
     ledcWrite(pwmPins[i], 0);
   }
+
+  dutyFullScale = (1UL << (uint8_t)paramValues[PARAM_PWM_RES]) - 1;
 
   for (int i = 0; i < 3; i++) {
     pinMode(switchInputPins[i], INPUT_PULLDOWN);
@@ -663,9 +1274,18 @@ void loop() {
   readCommands(Serial, usbCommandLine, Serial);
   processEspNowCommand();
 
-  uint16_t pot1Input = analogRead(potPins[0]);
-  uint16_t pot2Input = analogRead(potPins[1]);
-  uint16_t pot3Input = analogRead(potPins[2]);
+  uint16_t potInputs[3];
+
+  // Pot direction. potflip inverts all three inputs; inv1..inv3 invert a single slot.
+  // The two XOR, so a per-slot flag stays an individual correction while potflip is on:
+  // set potflip to fix a whole harness at once, then clear the odd slot with its invN.
+  bool globalPotFlip = paramValues[PARAM_POT_FLIP] != 0;
+
+  for (int i = 0; i < 3; i++) {
+    uint16_t rawPot = (uint16_t)analogRead(potPins[i]);
+    bool flip = (globalPotFlip != (paramValues[PARAM_INVERT_POT1 + i] != 0));
+    potInputs[i] = flip ? (uint16_t)(adcMax - rawPot) : rawPot;
+  }
   bool switchRawValues[3] = {false, false, false};
   bool switchRaw = false;
 
@@ -676,49 +1296,66 @@ void loop() {
       switchRaw = true;
     }
   }
-  uint16_t pot1 = potOverrides[0].enabled ? potOverrides[0].value : pot1Input;
-  uint16_t pot2 = potOverrides[1].enabled ? potOverrides[1].value : pot2Input;
-  uint16_t pot3 = potOverrides[2].enabled ? potOverrides[2].value : pot3Input;
+
+  uint16_t potValues[3];
+
+  for (int i = 0; i < 3; i++) {
+    potValues[i] = potOverrides[i].enabled ? potOverrides[i].value : potInputs[i];
+  }
+
   bool switchOn = switchOverride.enabled ? switchOverride.value : switchRaw;
+  uint16_t moveThreshold = paramValues[PARAM_MOVE_THRESH];
 
   if (!haveLastPots) {
-    lastPot2 = pot2;
-    lastPot3 = pot3;
+    lastPot2 = potValues[1];
+    lastPot3 = potValues[2];
     lastMovementSampleMs = nowMs;
     haveLastPots = true;
   } else if (nowMs - lastMovementSampleMs >= movementSampleMs) {
-    if (changedEnough(pot2, lastPot2) || changedEnough(pot3, lastPot3)) {
+    if (changedEnough(potValues[1], lastPot2, moveThreshold) || changedEnough(potValues[2], lastPot3, moveThreshold)) {
       lastPwm23ChangeMs = nowMs;
     }
 
-    lastPot2 = pot2;
-    lastPot3 = pot3;
+    lastPot2 = potValues[1];
+    lastPot3 = potValues[2];
     lastMovementSampleMs = nowMs;
   }
 
-  bool pwm23Changing = nowMs - lastPwm23ChangeMs <= movementHoldMs;
-  uint16_t pwm1 = startupRampedDuty(cappedDuty(sensitiveDuty(pot1), pwm1Max), nowMs);
-  uint16_t pwm2 = startupRampedDuty(cappedDuty(sensitiveDuty(pot2), pwm23Max), nowMs);
-  uint16_t pwm3 = startupRampedDuty(cappedDuty(sensitiveDuty(pot3), pwm23Max), nowMs);
+  bool pwm23Changing = nowMs - lastPwm23ChangeMs <= paramValues[PARAM_MOVE_HOLD_MS];
+  uint16_t boardDuty[3] = {
+    startupRampedDuty(cappedDuty(sensitiveDuty(potValues[0]), paramValues[PARAM_MAX_B1]), nowMs),
+    startupRampedDuty(cappedDuty(sensitiveDuty(potValues[1]), paramValues[PARAM_MAX_B2]), nowMs),
+    startupRampedDuty(cappedDuty(sensitiveDuty(potValues[2]), paramValues[PARAM_MAX_B3]), nowMs)
+  };
   uint16_t switchDuty = switchRampedDuty(switchOn, nowMs);
-
-  uint16_t pwmValues[6] = {pwm1, pwm1, pwm2, pwm2, pwm3, pwm3};
+  uint16_t channelDuty[6];
 
   for (int i = 0; i < 6; i++) {
-    ledcWrite(pwmPins[i], pwmValues[i]);
+    channelDuty[i] = pwmForce[i].enabled ? pwmForce[i].value : boardDuty[i / 2];
+    ledcWrite(pwmPins[i], scaleDuty(channelDuty[i]));
   }
+
+  uint8_t doStateMask = 0;
 
   for (int i = 0; i < 3; i++) {
     bool outputOn = switchOverride.enabled ? switchOn : switchRawValues[i];
-    digitalWrite(switchDigitalOutPins[i][0], outputOn ? HIGH : LOW);
-    digitalWrite(switchDigitalOutPins[i][1], outputOn ? HIGH : LOW);
+
+    for (int output = 0; output < 2; output++) {
+      int doIndex = i * 2 + output;
+      bool level = doForce[doIndex].enabled ? doForce[doIndex].value : outputOn;
+      digitalWrite(digitalOutPins[doIndex], level ? HIGH : LOW);
+
+      if (level) {
+        doStateMask |= 1 << doIndex;
+      }
+    }
   }
 
-  if (nowMs - lastReportMs >= reportIntervalMs) {
+  if (nowMs - lastReportMs >= paramValues[PARAM_REPORT_MS]) {
     lastReportMs = nowMs;
 
-    printTelemetry(Serial, pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRawValues, switchRaw, switchOn, pwm23Changing);
-    sendTelemetryPacket(pot1, pot2, pot3, pwm1, pwm2, pwm3, switchDuty, switchRaw, switchOn, pwm23Changing);
+    printTelemetry(Serial, potValues, channelDuty, switchDuty, switchRawValues, switchRaw, switchOn, doStateMask, pwm23Changing);
+    sendTelemetryPacket(potValues, channelDuty, switchDuty, switchRawValues, switchRaw, switchOn, doStateMask, pwm23Changing);
     sequence++;
   }
 }
