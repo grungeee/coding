@@ -36,7 +36,7 @@ Lone pins: GPIO14 and GPIO12 — do not crimp them into the connector at all.
 
 ## Sketch constants
 
-    const int potPins[3] = {36, 35, 34};
+    const int potPins[3] = {36, 34, 35};
     const int switchInputPins[3] = {4, 13, 15};
     const int pwmPins[6] = {32, 33, 27, 21, 19, 18};
     const int digitalOutPins[6] = {25, 26, 23, 22, 17, 16};

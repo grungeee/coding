@@ -3,8 +3,8 @@
 
   Local analog inputs (index = board slot):
     board1/POT1 -> GPIO36
-    board2/POT2 -> GPIO35
-    board3/POT3 -> GPIO34
+    board2/POT2 -> GPIO34
+    board3/POT3 -> GPIO35
     Pots use ADC1 pins so they keep working while WiFi/ESP-NOW is active.
 
   I2C:
@@ -65,10 +65,10 @@
 
 /* The harness connectors are indexed by BOARD SLOT below (slot N = board N = physical
    POTN / SWN). Measured on the board:
-     pots:  POT1 = GPIO36, POT2 = GPIO35, POT3 = GPIO34   (pot order IS reversed on the harness)
+     pots:  POT1 = GPIO36, POT2 = GPIO34, POT3 = GPIO35   (harness: POT1 on GPIO36, POT2/POT3 swapped)
      switches: SW1 = GPIO21, SW2 = GPIO4, SW3 = GPIO15    (SW1/SW2 are crossed)
    The PWM and digital-output arrays follow the IDC connector order and are untouched. */
-const int potPins[3] = {36, 35, 34};
+const int potPins[3] = {36, 34, 35};
 const int digitalOutPins[6] = {22, 33, 18, 26, 16, 13};
 const int switchDigitalOutPins[3][2] = {
   {22, 33},
@@ -133,7 +133,7 @@ const ParamSpec paramSpecs[PARAM_COUNT] = {
   {"inv1",       0,     1,   1,     0},
   {"inv2",       0,     1,   1,     0},
   {"inv3",       0,     1,   1,     0},
-  {"potflip",    0,     1,   1,     0},
+  {"potflip",    0,     1,   1,     1},   // default ON: harness pots are wired backwards
 };
 
 uint16_t paramValues[PARAM_COUNT];
